@@ -1,5 +1,5 @@
 
-````markdown
+
 # Media Platform Service Backend
 
 A secure and scalable backend service for a media platform, built with Java and Spring Boot. This service allows administrative users to manage media assets and generate secure, short-lived streaming links.
@@ -46,7 +46,7 @@ Follow these instructions to get the project up and running on your local machin
 ```bash
 git clone [https://github.com/your-username/media-platform-backend.git](https://github.com/your-username/media-platform-backend.git)
 cd media-platform-backend
-````
+
 
 ### 2\. Configure the Database
 
