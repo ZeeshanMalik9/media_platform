@@ -1,0 +1,5 @@
+package com.Klantroef.dto;
+
+public class SignUpRequest {
+
+}

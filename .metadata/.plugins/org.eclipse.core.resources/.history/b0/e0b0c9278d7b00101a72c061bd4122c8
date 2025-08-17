@@ -1,0 +1,5 @@
+package com.Klantroef.repository;
+
+public class MediaAssetRepository {
+
+}

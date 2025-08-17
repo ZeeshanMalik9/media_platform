@@ -1,0 +1,1633 @@
+!SESSION 2025-08-17 19:53:44.738 -----------------------------------------------
+eclipse.buildId=4.34.0.20241128-0756
+java.version=23.0.2
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.jee.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.jee.product
+
+!ENTRY org.eclipse.eclemma.core 4 0 2025-08-17 19:53:51.541
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: org.eclipse.eclemma.core [322]
+  Unresolved requirement: Require-Bundle: org.jacoco.report; bundle-version="[0.8.12,0.8.13)"
+    -> Bundle-SymbolicName: org.jacoco.report; bundle-version="0.8.12.202403310830"
+       org.jacoco.report [962]
+         Unresolved requirement: Import-Package: org.objectweb.asm; version="[9.7.0,9.8.0)"
+           -> Export-Package: org.objectweb.asm; bundle-symbolic-name="org.objectweb.asm"; bundle-version="9.7.1"; version="9.7.1"
+              org.objectweb.asm [971]
+                No resolution report for the bundle.         Unresolved requirement: Import-Package: org.jacoco.core; version="[0.8.12,0.8.13)"
+           -> Export-Package: org.jacoco.core; bundle-symbolic-name="org.jacoco.core"; bundle-version="0.8.12.202403310830"; version="0.8.12"
+              org.jacoco.core [961]
+                Unresolved requirement: Import-Package: org.objectweb.asm.tree; version="[9.7.0,9.8.0)"
+                  -> Export-Package: org.objectweb.asm.tree; bundle-symbolic-name="org.objectweb.asm.tree"; bundle-version="9.7.1"; version="9.7.1"; uses:="org.objectweb.asm,org.objectweb.asm.signature"
+                     org.objectweb.asm.tree [973]
+                       Unresolved requirement: Import-Package: org.objectweb.asm.signature; version="9.7.1"
+                         -> Export-Package: org.objectweb.asm.signature; bundle-symbolic-name="org.objectweb.asm"; bundle-version="9.7.1"; version="9.7.1"
+                       Unresolved requirement: Import-Package: org.objectweb.asm; version="9.7.1"
+                         -> Export-Package: org.objectweb.asm; bundle-symbolic-name="org.objectweb.asm"; bundle-version="9.7.1"; version="9.7.1"
+                Unresolved requirement: Import-Package: org.objectweb.asm; version="[9.7.0,9.8.0)"
+                  -> Export-Package: org.objectweb.asm; bundle-symbolic-name="org.objectweb.asm"; bundle-version="9.7.1"; version="9.7.1"
+         Unresolved requirement: Import-Package: org.jacoco.core.data; version="[0.8.12,0.8.13)"
+           -> Export-Package: org.jacoco.core.data; bundle-symbolic-name="org.jacoco.core"; bundle-version="0.8.12.202403310830"; version="0.8.12"; uses:="org.jacoco.core.internal.data"
+         Unresolved requirement: Import-Package: org.jacoco.core.runtime; version="[0.8.12,0.8.13)"
+           -> Export-Package: org.jacoco.core.runtime; bundle-symbolic-name="org.jacoco.core"; bundle-version="0.8.12.202403310830"; version="0.8.12"; uses:="org.jacoco.core.data,org.objectweb.asm"
+         Unresolved requirement: Import-Package: org.jacoco.core.analysis; version="[0.8.12,0.8.13)"
+           -> Export-Package: org.jacoco.core.analysis; bundle-symbolic-name="org.jacoco.core"; bundle-version="0.8.12.202403310830"; version="0.8.12"; uses:="org.jacoco.core.data,org.jacoco.core.internal.analysis"
+  Unresolved requirement: Require-Bundle: org.jacoco.core; bundle-version="[0.8.12,0.8.13)"
+    -> Bundle-SymbolicName: org.jacoco.core; bundle-version="0.8.12.202403310830"
+  Unresolved requirement: Require-Bundle: org.jacoco.agent; bundle-version="[0.8.12,0.8.13)"
+    -> Bundle-SymbolicName: org.jacoco.agent; bundle-version="0.8.12.202403310830"
+       org.jacoco.agent [960]
+         No resolution report for the bundle.  Bundle was not resolved because of a uses constraint violation.
+  org.apache.felix.resolver.reason.ReasonException: Uses constraint violation. Unable to resolve resource org.jacoco.core [osgi.identity; type="osgi.bundle"; version:Version="0.8.12.202403310830"; osgi.identity="org.jacoco.core"] because it is exposed to package 'org.objectweb.asm' from resources org.objectweb.asm [osgi.identity; type="osgi.bundle"; version:Version="9.7.1"; osgi.identity="org.objectweb.asm"] and org.objectweb.asm [osgi.identity; type="osgi.bundle"; version:Version="9.8.0"; osgi.identity="org.objectweb.asm"] via two dependency chains.
+
+Chain 1:
+  org.jacoco.core [osgi.identity; type="osgi.bundle"; version:Version="0.8.12.202403310830"; osgi.identity="org.jacoco.core"]
+    import: (&(osgi.wiring.package=org.objectweb.asm)(&(version>=9.7.0)(!(version>=9.8.0))))
+     |
+    export: osgi.wiring.package: org.objectweb.asm
+  org.objectweb.asm [osgi.identity; type="osgi.bundle"; version:Version="9.7.1"; osgi.identity="org.objectweb.asm"]
+
+Chain 2:
+  org.jacoco.core [osgi.identity; type="osgi.bundle"; version:Version="0.8.12.202403310830"; osgi.identity="org.jacoco.core"]
+    import: (&(osgi.wiring.package=org.objectweb.asm.commons)(&(version>=9.7.0)(!(version>=9.8.0))))
+     |
+    export: osgi.wiring.package=org.objectweb.asm.commons; uses:=org.objectweb.asm
+  org.objectweb.asm.commons [osgi.identity; type="osgi.bundle"; version:Version="9.7.1"; osgi.identity="org.objectweb.asm.commons"]
+    import: (&(osgi.wiring.package=org.objectweb.asm)(version>=9.7.1))
+     |
+    export: osgi.wiring.package: org.objectweb.asm
+  org.objectweb.asm [osgi.identity; type="osgi.bundle"; version:Version="9.8.0"; osgi.identity="org.objectweb.asm"]
+	at org.eclipse.osgi.container.Module.start(Module.java:493)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel$2.run(ModuleContainer.java:2102)
+	at org.eclipse.osgi.internal.framework.EquinoxContainerAdaptor$1$1.execute(EquinoxContainerAdaptor.java:143)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:2093)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:2033)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1996)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1912)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:230)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:341)
+
+!ENTRY org.eclipse.eclemma.ui 4 0 2025-08-17 19:53:51.559
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: org.eclipse.eclemma.ui [324]
+  Unresolved requirement: Require-Bundle: org.jacoco.core; bundle-version="[0.8.12,0.8.13)"
+    -> Bundle-SymbolicName: org.jacoco.core; bundle-version="0.8.12.202403310830"
+       org.jacoco.core [961]
+         Unresolved requirement: Import-Package: org.objectweb.asm.tree; version="[9.7.0,9.8.0)"
+           -> Export-Package: org.objectweb.asm.tree; bundle-symbolic-name="org.objectweb.asm.tree"; bundle-version="9.7.1"; version="9.7.1"; uses:="org.objectweb.asm,org.objectweb.asm.signature"
+              org.objectweb.asm.tree [973]
+                Unresolved requirement: Import-Package: org.objectweb.asm.signature; version="9.7.1"
+                  -> Export-Package: org.objectweb.asm.signature; bundle-symbolic-name="org.objectweb.asm"; bundle-version="9.7.1"; version="9.7.1"
+                     org.objectweb.asm [971]
+                       No resolution report for the bundle.                Unresolved requirement: Import-Package: org.objectweb.asm; version="9.7.1"
+                  -> Export-Package: org.objectweb.asm; bundle-symbolic-name="org.objectweb.asm"; bundle-version="9.7.1"; version="9.7.1"
+         Unresolved requirement: Import-Package: org.objectweb.asm; version="[9.7.0,9.8.0)"
+           -> Export-Package: org.objectweb.asm; bundle-symbolic-name="org.objectweb.asm"; bundle-version="9.7.1"; version="9.7.1"
+  Unresolved requirement: Require-Bundle: org.eclipse.eclemma.core
+    -> Bundle-SymbolicName: org.eclipse.eclemma.core; bundle-version="3.1.9.202405260028"; singleton:="true"
+       org.eclipse.eclemma.core [322]
+         Unresolved requirement: Require-Bundle: org.jacoco.report; bundle-version="[0.8.12,0.8.13)"
+           -> Bundle-SymbolicName: org.jacoco.report; bundle-version="0.8.12.202403310830"
+              org.jacoco.report [962]
+                Unresolved requirement: Import-Package: org.objectweb.asm; version="[9.7.0,9.8.0)"
+                  -> Export-Package: org.objectweb.asm; bundle-symbolic-name="org.objectweb.asm"; bundle-version="9.7.1"; version="9.7.1"
+                Unresolved requirement: Import-Package: org.jacoco.core; version="[0.8.12,0.8.13)"
+                  -> Export-Package: org.jacoco.core; bundle-symbolic-name="org.jacoco.core"; bundle-version="0.8.12.202403310830"; version="0.8.12"
+                Unresolved requirement: Import-Package: org.jacoco.core.data; version="[0.8.12,0.8.13)"
+                  -> Export-Package: org.jacoco.core.data; bundle-symbolic-name="org.jacoco.core"; bundle-version="0.8.12.202403310830"; version="0.8.12"; uses:="org.jacoco.core.internal.data"
+                Unresolved requirement: Import-Package: org.jacoco.core.runtime; version="[0.8.12,0.8.13)"
+                  -> Export-Package: org.jacoco.core.runtime; bundle-symbolic-name="org.jacoco.core"; bundle-version="0.8.12.202403310830"; version="0.8.12"; uses:="org.jacoco.core.data,org.objectweb.asm"
+                Unresolved requirement: Import-Package: org.jacoco.core.analysis; version="[0.8.12,0.8.13)"
+                  -> Export-Package: org.jacoco.core.analysis; bundle-symbolic-name="org.jacoco.core"; bundle-version="0.8.12.202403310830"; version="0.8.12"; uses:="org.jacoco.core.data,org.jacoco.core.internal.analysis"
+         Unresolved requirement: Require-Bundle: org.jacoco.core; bundle-version="[0.8.12,0.8.13)"
+           -> Bundle-SymbolicName: org.jacoco.core; bundle-version="0.8.12.202403310830"
+         Unresolved requirement: Require-Bundle: org.jacoco.agent; bundle-version="[0.8.12,0.8.13)"
+           -> Bundle-SymbolicName: org.jacoco.agent; bundle-version="0.8.12.202403310830"
+              org.jacoco.agent [960]
+                No resolution report for the bundle.  Bundle was not resolved because of a uses constraint violation.
+  org.apache.felix.resolver.reason.ReasonException: Uses constraint violation. Unable to resolve resource org.jacoco.core [osgi.identity; type="osgi.bundle"; version:Version="0.8.12.202403310830"; osgi.identity="org.jacoco.core"] because it is exposed to package 'org.objectweb.asm' from resources org.objectweb.asm [osgi.identity; type="osgi.bundle"; version:Version="9.7.1"; osgi.identity="org.objectweb.asm"] and org.objectweb.asm [osgi.identity; type="osgi.bundle"; version:Version="9.8.0"; osgi.identity="org.objectweb.asm"] via two dependency chains.
+
+Chain 1:
+  org.jacoco.core [osgi.identity; type="osgi.bundle"; version:Version="0.8.12.202403310830"; osgi.identity="org.jacoco.core"]
+    import: (&(osgi.wiring.package=org.objectweb.asm)(&(version>=9.7.0)(!(version>=9.8.0))))
+     |
+    export: osgi.wiring.package: org.objectweb.asm
+  org.objectweb.asm [osgi.identity; type="osgi.bundle"; version:Version="9.7.1"; osgi.identity="org.objectweb.asm"]
+
+Chain 2:
+  org.jacoco.core [osgi.identity; type="osgi.bundle"; version:Version="0.8.12.202403310830"; osgi.identity="org.jacoco.core"]
+    import: (&(osgi.wiring.package=org.objectweb.asm.commons)(&(version>=9.7.0)(!(version>=9.8.0))))
+     |
+    export: osgi.wiring.package=org.objectweb.asm.commons; uses:=org.objectweb.asm
+  org.objectweb.asm.commons [osgi.identity; type="osgi.bundle"; version:Version="9.7.1"; osgi.identity="org.objectweb.asm.commons"]
+    import: (&(osgi.wiring.package=org.objectweb.asm)(version>=9.7.1))
+     |
+    export: osgi.wiring.package: org.objectweb.asm
+  org.objectweb.asm [osgi.identity; type="osgi.bundle"; version:Version="9.8.0"; osgi.identity="org.objectweb.asm"]
+	at org.eclipse.osgi.container.Module.start(Module.java:493)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel$2.run(ModuleContainer.java:2102)
+	at org.eclipse.osgi.internal.framework.EquinoxContainerAdaptor$1$1.execute(EquinoxContainerAdaptor.java:143)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:2093)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:2033)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1996)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1912)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:230)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:341)
+
+!ENTRY ch.qos.logback.classic 1 0 2025-08-17 19:53:51.812
+!MESSAGE Activated before the state location was initialized. Retry after the state location is initialized.
+
+!ENTRY org.eclipse.equinox.app 0 0 2025-08-17 19:53:53.940
+!MESSAGE Product org.eclipse.epp.package.jee.product could not be found.
+
+!ENTRY ch.qos.logback.classic 1 0 2025-08-17 20:20:52.772
+!MESSAGE Logback config file: C:\Users\Saif ali khan\Desktop\Tap Academy\GithubProjects\media_analysis\.metadata\.plugins\org.eclipse.m2e.logback\logback.2.7.0.20241001-1350.xml
+
+!ENTRY org.eclipse.ui 2 0 2025-08-17 20:20:53.696
+!MESSAGE Warnings while parsing the commands from the 'org.eclipse.ui.commands' and 'org.eclipse.ui.actionDefinitions' extension points.
+!SUBENTRY 1 org.eclipse.ui 2 0 2025-08-17 20:20:53.696
+!MESSAGE Commands should really have a category: plug-in='org.springframework.tooling.boot.ls', id='spring.initializr.addStarters', categoryId='org.eclipse.lsp4e.commandCategory'
+
+!ENTRY org.eclipse.ui 4 4 2025-08-17 20:20:54.234
+!MESSAGE Invalid workspace location to be set for Edge browser.
+!STACK 0
+java.net.URISyntaxException: Illegal character in path at index 19: file:/C:/Users/Saif ali khan/Desktop/Tap Academy/GithubProjects/media_analysis/.metadata/.plugins/org.eclipse.swt
+	at java.base/java.net.URI$Parser.fail(URI.java:2995)
+	at java.base/java.net.URI$Parser.checkChars(URI.java:3166)
+	at java.base/java.net.URI$Parser.parseHierarchical(URI.java:3248)
+	at java.base/java.net.URI$Parser.parse(URI.java:3196)
+	at java.base/java.net.URI.<init>(URI.java:645)
+	at java.base/java.net.URL.toURI(URL.java:1220)
+	at org.eclipse.ui.internal.Workbench.setEdgeDataDirectory(Workbench.java:530)
+	at org.eclipse.ui.internal.Workbench.<init>(Workbench.java:461)
+	at org.eclipse.ui.internal.Workbench.lambda$3(Workbench.java:598)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:339)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:570)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:173)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:178)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:208)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:143)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:109)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:439)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:271)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:668)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:605)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1481)
+
+!ENTRY org.eclipse.ui 2 0 2025-08-17 20:20:54.416
+!MESSAGE Warnings while parsing the commands from the 'org.eclipse.ui.commands' and 'org.eclipse.ui.actionDefinitions' extension points.
+!SUBENTRY 1 org.eclipse.ui 2 0 2025-08-17 20:20:54.416
+!MESSAGE Commands should really have a category: plug-in='org.springframework.tooling.boot.ls', id='spring.initializr.addStarters', categoryId='org.eclipse.lsp4e.commandCategory'
+
+!ENTRY org.eclipse.egit.ui 2 0 2025-08-17 20:21:00.204
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\Saif ali khan'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY com.microsoft.copilot.eclipse 1 0 2025-08-17 20:21:00.419
+!MESSAGE [Info] Starting language server with binary lsp agent.
+
+!ENTRY com.microsoft.copilot.eclipse 1 0 2025-08-17 20:21:00.472
+!MESSAGE [Info] Lsp agent started successfully.
+
+!ENTRY org.eclipse.lsp4e 1 0 2025-08-17 20:21:02.886
+!MESSAGE [Log]	@instana/serverless-collector initialized.
+
+!ENTRY org.eclipse.lsp4e 1 0 2025-08-17 20:21:03.098
+!MESSAGE [Info]	[lsp] GitHub Copilot Language Server 1.353.0 initialized
+
+!ENTRY org.eclipse.lsp4e 1 0 2025-08-17 20:21:03.144
+!MESSAGE [Log]	[2025-17-08 08:21:03.136 PM] info: 	Dynamic inline compl registration: false
+
+!ENTRY org.eclipse.lsp4e 1 0 2025-08-17 20:21:03.146
+!MESSAGE [Log]	[2025-17-08 08:21:03.137 PM] info: 	Dynamic CodeLens registration: false
+
+!ENTRY org.eclipse.lsp4e 1 0 2025-08-17 20:21:03.147
+!MESSAGE [Log]	[2025-17-08 08:21:03.138 PM] info: 	Client supports language requests: false
+
+!ENTRY org.eclipse.lsp4e 1 0 2025-08-17 20:21:03.158
+!MESSAGE [Log]	[2025-17-08 08:21:03.154 PM] info: 	ORAI LSP 7.1.7-e68b499
+
+!ENTRY org.eclipse.lsp4e 1 0 2025-08-17 20:21:03.193
+!MESSAGE [Log]	[2025-17-08 08:21:03.181 PM] info: 	Finished loading workspace symbols:
+
+Total No: Files: 0
+No: Files Parsed: 0
+No: of workspace symbols: 0
+No: of characters parsed: 0
+Total Duration: 0.79950000000008
+getAllFileListDuration: 0.005600000000185901 
+readingContentFromDiskDuration: 0 
+parsingDuration: 0 
+queringFnAndClassDuration: 0
+
+!ENTRY org.eclipse.lsp4e 1 0 2025-08-17 20:21:03.200
+!MESSAGE [Log]	[2025-17-08 08:21:03.190 PM] info: 	Chat session title migration started
+
+!ENTRY org.eclipse.lsp4e 1 0 2025-08-17 20:21:03.201
+!MESSAGE [Log]	[2025-17-08 08:21:03.190 PM] info: 	Updating unnamed chat session titles task is completed.
+
+!ENTRY org.eclipse.lsp4e 1 0 2025-08-17 20:21:03.519
+!MESSAGE [Info]	[certificates] Removed 12 expired certificates
+
+!ENTRY org.eclipse.equinox.p2.core 4 0 2025-08-17 20:29:42.218
+!MESSAGE Provisioning exception
+!STACK 1
+org.eclipse.equinox.p2.core.ProvisionException: Unable to read repository at https://download.eclipse.org/tools/cdt/releases/11.6/cdt-11.6.0/artifacts.xml.xz.
+	at org.eclipse.equinox.internal.p2.repository.CacheManager.updateCache(CacheManager.java:453)
+	at org.eclipse.equinox.internal.p2.repository.CacheManager.createCacheFromFile(CacheManager.java:140)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.XZedSimpleArtifactRepositoryFactory.getLocalFile(XZedSimpleArtifactRepositoryFactory.java:65)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.XZedSimpleArtifactRepositoryFactory.load(XZedSimpleArtifactRepositoryFactory.java:89)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.XZedSimpleArtifactRepositoryFactory.load(XZedSimpleArtifactRepositoryFactory.java:42)
+	at org.eclipse.equinox.internal.p2.artifact.repository.ArtifactRepositoryManager.factoryLoad(ArtifactRepositoryManager.java:92)
+	at org.eclipse.equinox.internal.p2.repository.helpers.AbstractRepositoryManager.loadRepository(AbstractRepositoryManager.java:799)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.eclipse.oomph.util.ReflectUtil.invokeMethod(ReflectUtil.java:119)
+	at org.eclipse.oomph.p2.internal.core.CachingRepositoryManager.loadRepository(CachingRepositoryManager.java:448)
+	at org.eclipse.oomph.p2.internal.core.CachingRepositoryManager.loadRepository(CachingRepositoryManager.java:231)
+	at org.eclipse.oomph.p2.internal.core.CachingRepositoryManager$Artifact.loadRepository(CachingRepositoryManager.java:587)
+	at org.eclipse.equinox.internal.p2.artifact.repository.ArtifactRepositoryManager.loadRepository(ArtifactRepositoryManager.java:131)
+	at org.eclipse.equinox.internal.p2.artifact.repository.ArtifactRepositoryManager.loadRepository(ArtifactRepositoryManager.java:125)
+	at org.eclipse.equinox.internal.p2.artifact.repository.CompositeArtifactRepository.load(CompositeArtifactRepository.java:476)
+	at org.eclipse.equinox.internal.p2.artifact.repository.CompositeArtifactRepository.addChild(CompositeArtifactRepository.java:157)
+	at org.eclipse.equinox.internal.p2.artifact.repository.CompositeArtifactRepository.<init>(CompositeArtifactRepository.java:79)
+	at org.eclipse.equinox.internal.p2.artifact.repository.CompositeArtifactRepositoryFactory.load(CompositeArtifactRepositoryFactory.java:120)
+	at org.eclipse.equinox.internal.p2.artifact.repository.ArtifactRepositoryManager.factoryLoad(ArtifactRepositoryManager.java:92)
+	at org.eclipse.equinox.internal.p2.repository.helpers.AbstractRepositoryManager.loadRepository(AbstractRepositoryManager.java:799)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.eclipse.oomph.util.ReflectUtil.invokeMethod(ReflectUtil.java:119)
+	at org.eclipse.oomph.p2.internal.core.CachingRepositoryManager.loadRepository(CachingRepositoryManager.java:448)
+	at org.eclipse.oomph.p2.internal.core.CachingRepositoryManager.loadRepository(CachingRepositoryManager.java:231)
+	at org.eclipse.oomph.p2.internal.core.CachingRepositoryManager$Artifact.loadRepository(CachingRepositoryManager.java:587)
+	at org.eclipse.equinox.internal.p2.artifact.repository.ArtifactRepositoryManager.loadRepository(ArtifactRepositoryManager.java:131)
+	at org.eclipse.equinox.internal.p2.artifact.repository.ArtifactRepositoryManager.loadRepository(ArtifactRepositoryManager.java:125)
+	at org.eclipse.epp.internal.mpc.ui.catalog.MarketplaceCatalog.lambda$12(MarketplaceCatalog.java:338)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1575)
+Caused by: org.eclipse.core.runtime.CoreException: 
+	at org.eclipse.equinox.internal.p2.transport.ecf.RepositoryStatusHelper.wrap(RepositoryStatusHelper.java:179)
+	at org.eclipse.equinox.internal.p2.transport.ecf.FileReader.checkException(FileReader.java:540)
+	at org.eclipse.equinox.internal.p2.transport.ecf.FileReader.sendRetrieveRequest(FileReader.java:465)
+	at org.eclipse.equinox.internal.p2.transport.ecf.FileReader.readInto(FileReader.java:386)
+	at org.eclipse.equinox.internal.p2.transport.ecf.RepositoryTransport.download(RepositoryTransport.java:136)
+	at org.eclipse.oomph.p2.internal.core.CachingTransport.download(CachingTransport.java:202)
+	at org.eclipse.equinox.internal.p2.repository.CacheManager.updateCache(CacheManager.java:424)
+	... 34 more
+!SUBENTRY 1 org.eclipse.equinox.p2.transport.ecf 4 1002 2025-08-17 20:29:42.220
+!MESSAGE Unable to read repository at https://download.eclipse.org/tools/cdt/releases/11.6/cdt-11.6.0/artifacts.xml.xz.
+!STACK 1
+org.eclipse.core.runtime.CoreException: 
+	at org.eclipse.equinox.internal.p2.transport.ecf.RepositoryStatusHelper.wrap(RepositoryStatusHelper.java:179)
+	at org.eclipse.equinox.internal.p2.transport.ecf.FileReader.checkException(FileReader.java:540)
+	at org.eclipse.equinox.internal.p2.transport.ecf.FileReader.sendRetrieveRequest(FileReader.java:465)
+	at org.eclipse.equinox.internal.p2.transport.ecf.FileReader.readInto(FileReader.java:386)
+	at org.eclipse.equinox.internal.p2.transport.ecf.RepositoryTransport.download(RepositoryTransport.java:136)
+	at org.eclipse.oomph.p2.internal.core.CachingTransport.download(CachingTransport.java:202)
+	at org.eclipse.equinox.internal.p2.repository.CacheManager.updateCache(CacheManager.java:424)
+	at org.eclipse.equinox.internal.p2.repository.CacheManager.createCacheFromFile(CacheManager.java:140)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.XZedSimpleArtifactRepositoryFactory.getLocalFile(XZedSimpleArtifactRepositoryFactory.java:65)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.XZedSimpleArtifactRepositoryFactory.load(XZedSimpleArtifactRepositoryFactory.java:89)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.XZedSimpleArtifactRepositoryFactory.load(XZedSimpleArtifactRepositoryFactory.java:42)
+	at org.eclipse.equinox.internal.p2.artifact.repository.ArtifactRepositoryManager.factoryLoad(ArtifactRepositoryManager.java:92)
+	at org.eclipse.equinox.internal.p2.repository.helpers.AbstractRepositoryManager.loadRepository(AbstractRepositoryManager.java:799)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.eclipse.oomph.util.ReflectUtil.invokeMethod(ReflectUtil.java:119)
+	at org.eclipse.oomph.p2.internal.core.CachingRepositoryManager.loadRepository(CachingRepositoryManager.java:448)
+	at org.eclipse.oomph.p2.internal.core.CachingRepositoryManager.loadRepository(CachingRepositoryManager.java:231)
+	at org.eclipse.oomph.p2.internal.core.CachingRepositoryManager$Artifact.loadRepository(CachingRepositoryManager.java:587)
+	at org.eclipse.equinox.internal.p2.artifact.repository.ArtifactRepositoryManager.loadRepository(ArtifactRepositoryManager.java:131)
+	at org.eclipse.equinox.internal.p2.artifact.repository.ArtifactRepositoryManager.loadRepository(ArtifactRepositoryManager.java:125)
+	at org.eclipse.equinox.internal.p2.artifact.repository.CompositeArtifactRepository.load(CompositeArtifactRepository.java:476)
+	at org.eclipse.equinox.internal.p2.artifact.repository.CompositeArtifactRepository.addChild(CompositeArtifactRepository.java:157)
+	at org.eclipse.equinox.internal.p2.artifact.repository.CompositeArtifactRepository.<init>(CompositeArtifactRepository.java:79)
+	at org.eclipse.equinox.internal.p2.artifact.repository.CompositeArtifactRepositoryFactory.load(CompositeArtifactRepositoryFactory.java:120)
+	at org.eclipse.equinox.internal.p2.artifact.repository.ArtifactRepositoryManager.factoryLoad(ArtifactRepositoryManager.java:92)
+	at org.eclipse.equinox.internal.p2.repository.helpers.AbstractRepositoryManager.loadRepository(AbstractRepositoryManager.java:799)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.eclipse.oomph.util.ReflectUtil.invokeMethod(ReflectUtil.java:119)
+	at org.eclipse.oomph.p2.internal.core.CachingRepositoryManager.loadRepository(CachingRepositoryManager.java:448)
+	at org.eclipse.oomph.p2.internal.core.CachingRepositoryManager.loadRepository(CachingRepositoryManager.java:231)
+	at org.eclipse.oomph.p2.internal.core.CachingRepositoryManager$Artifact.loadRepository(CachingRepositoryManager.java:587)
+	at org.eclipse.equinox.internal.p2.artifact.repository.ArtifactRepositoryManager.loadRepository(ArtifactRepositoryManager.java:131)
+	at org.eclipse.equinox.internal.p2.artifact.repository.ArtifactRepositoryManager.loadRepository(ArtifactRepositoryManager.java:125)
+	at org.eclipse.epp.internal.mpc.ui.catalog.MarketplaceCatalog.lambda$12(MarketplaceCatalog.java:338)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1575)
+!SUBENTRY 2 unknown 8 1 2025-08-17 20:29:42.220
+!MESSAGE 
+
+!ENTRY org.eclipse.lsp4e 1 0 2025-08-17 20:32:54.458
+!MESSAGE [Log]	[2025-17-08 08:32:54.422 PM] info: 	Workspace folder change event received.
+
+!ENTRY org.eclipse.lsp4e 1 0 2025-08-17 20:32:54.459
+!MESSAGE [Log]	[2025-17-08 08:32:54.427 PM] info: 	----existing url value event value : [object Object]-----
+
+!ENTRY org.eclipse.lsp4e 1 0 2025-08-17 20:32:54.729
+!MESSAGE [Log]	[2025-17-08 08:32:54.728 PM] info: 	Finished loading workspace symbols:
+
+Total No: Files: 9
+No: Files Parsed: 2
+No: of workspace symbols: 13
+No: of characters parsed: 493
+Total Duration: 287.37140000006184
+getAllFileListDuration: 85.57930000009947 
+readingContentFromDiskDuration: 0.005600000033155084 
+parsingDuration: 93.25500000012107 
+queringFnAndClassDuration: 16.20400000002701
+
+!ENTRY org.eclipse.lsp4e 1 0 2025-08-17 20:51:43.780
+!MESSAGE [Log]	[2025-17-08 08:51:43.772 PM] info: 	Workspace folder change event received.
+
+!ENTRY org.eclipse.lsp4e 1 0 2025-08-17 20:51:43.782
+!MESSAGE [Log]	[2025-17-08 08:51:43.773 PM] info: 	----existing url value event value : [object Object]-----
+
+!ENTRY org.eclipse.lsp4e 1 0 2025-08-17 21:59:55.518
+!MESSAGE [Log]	[2025-17-08 09:59:55.430 PM] info: 	Workspace folder change event received.
+
+!ENTRY org.eclipse.lsp4e 1 0 2025-08-17 21:59:55.521
+!MESSAGE [Log]	[2025-17-08 09:59:55.455 PM] info: 	----existing url value event value : [object Object]-----
+
+!ENTRY org.eclipse.lsp4e 1 0 2025-08-17 21:59:55.614
+!MESSAGE [Log]	[2025-17-08 09:59:55.611 PM] info: 	Finished loading workspace symbols:
+
+Total No: Files: 9
+No: Files Parsed: 2
+No: of workspace symbols: 13
+No: of characters parsed: 520
+Total Duration: 115.53550000023097
+getAllFileListDuration: 60.503100000321865 
+readingContentFromDiskDuration: 0.005800000391900539 
+parsingDuration: 14.107199999503791 
+queringFnAndClassDuration: 17.94940000027418
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-08-17 22:00:08.083
+!MESSAGE Unexpected null value present!
+!STACK 0
+java.lang.IllegalStateException: Unexpected null value present!
+	at org.eclipse.lsp4e.internal.NullSafetyHelper.castNonNull(NullSafetyHelper.java:36)
+	at org.eclipse.lsp4e.operations.semanticTokens.SemanticTokensClient.requestFullSemanticTokens(SemanticTokensClient.java:45)
+	at org.eclipse.lsp4e.operations.semanticTokens.SemanticHighlightReconcilerStrategy.fullReconcile(SemanticHighlightReconcilerStrategy.java:239)
+	at org.eclipse.lsp4e.operations.semanticTokens.SemanticHighlightReconcilerStrategy.initialReconcile(SemanticHighlightReconcilerStrategy.java:258)
+	at org.eclipse.ui.internal.genericeditor.CompositeReconcilerStrategy.initialReconcile(CompositeReconcilerStrategy.java:48)
+	at org.eclipse.jface.text.reconciler.Reconciler.initialProcess(Reconciler.java:223)
+	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:177)
+
+!ENTRY com.microsoft.copilot.eclipse 1 0 2025-08-17 22:08:32.331
+!MESSAGE [Info] Language ID not found for extension: properties
+
+!ENTRY com.microsoft.copilot.eclipse 1 0 2025-08-17 22:08:37.341
+!MESSAGE [Info] Completion request timed out after 5000 milliseconds
+
+!ENTRY org.eclipse.lsp4e 1 0 2025-08-17 22:08:40.555
+!MESSAGE [Info]	[fetchCompletions] Request 334dad82-a6a6-42cf-a35e-48875e59c454 at <https://proxy.individual.githubcopilot.com/v1/engines/gpt-4o-copilot/completions> finished with 200 status after 1016.6958999997005ms
+
+!ENTRY org.eclipse.lsp4e 1 0 2025-08-17 22:08:40.556
+!MESSAGE [Info]	[streamChoices] solution 0 returned. finish reason: [stop]
+
+!ENTRY org.eclipse.lsp4e 1 0 2025-08-17 22:08:47.829
+!MESSAGE [Info]	[fetchCompletions] Request 3b5d1ae9-348f-4b2e-889b-e3c0efd2253d at <https://proxy.individual.githubcopilot.com/v1/engines/gpt-4o-copilot/completions> finished with 200 status after 411.28259999956936ms
+
+!ENTRY org.eclipse.lsp4e 1 0 2025-08-17 22:08:47.970
+!MESSAGE [Info]	[streamChoices] solution 0 returned. finish reason: [stop]
+
+!ENTRY org.eclipse.lsp4e 1 0 2025-08-17 22:08:48.362
+!MESSAGE [Info]	[fetchCompletions] Request 23342ad1-22d2-4b61-a9ec-ad3c19f31172 at <https://proxy.individual.githubcopilot.com/v1/engines/gpt-4o-copilot/completions> finished with 200 status after 330.39489999972284ms
+
+!ENTRY org.eclipse.lsp4e 1 0 2025-08-17 22:08:48.363
+!MESSAGE [Info]	[streamChoices] solution 0 returned. finish reason: [stop]
+
+!ENTRY org.eclipse.lsp4e 1 0 2025-08-17 22:08:59.964
+!MESSAGE [Info]	[fetchCompletions] Request 0dbd836d-033c-4f79-9f70-2a7ddafe802c at <https://proxy.individual.githubcopilot.com/v1/engines/gpt-4o-copilot/completions> finished with 200 status after 405.1052999999374ms
+
+!ENTRY org.eclipse.lsp4e 1 0 2025-08-17 22:09:00.034
+!MESSAGE [Info]	[streamChoices] solution 0 returned. finish reason: [stop]
+
+!ENTRY org.eclipse.lsp4e 1 0 2025-08-17 22:09:01.266
+!MESSAGE [Info]	[fetchCompletions] Request ca91a7fa-3a04-41a3-8725-c62100bcf541 at <https://proxy.individual.githubcopilot.com/v1/engines/gpt-4o-copilot/completions> finished with 200 status after 1204.7426999993622ms
+
+!ENTRY org.eclipse.lsp4e 1 0 2025-08-17 22:09:01.399
+!MESSAGE [Info]	[streamChoices] solution 0 returned. finish reason: [null]
+
+!ENTRY org.eclipse.lsp4e 1 0 2025-08-17 22:09:03.311
+!MESSAGE [Info]	[code-referencing] Calling Match
+
+!ENTRY org.eclipse.lsp4e 1 0 2025-08-17 22:09:04.947
+!MESSAGE [Info]	[code-referencing] No match found
+
+!ENTRY org.eclipse.lsp4e 1 0 2025-08-17 22:09:05.158
+!MESSAGE [Info]	[fetchCompletions] Request 5778643a-ffc5-4f64-af10-cc432d83a7cb at <https://proxy.individual.githubcopilot.com/v1/engines/gpt-4o-copilot/completions> finished with 200 status after 362.7931000003591ms
+
+!ENTRY org.eclipse.lsp4e 1 0 2025-08-17 22:09:05.290
+!MESSAGE [Info]	[streamChoices] solution 0 returned. finish reason: [stop]
+
+!ENTRY org.eclipse.lsp4e 1 0 2025-08-17 22:09:05.700
+!MESSAGE [Info]	[fetchCompletions] Request 742e0e61-894b-4ae8-9ac9-58db9330042f at <https://proxy.individual.githubcopilot.com/v1/engines/gpt-4o-copilot/completions> finished with 200 status after 372.09180000051856ms
+
+!ENTRY org.eclipse.lsp4e 1 0 2025-08-17 22:09:05.701
+!MESSAGE [Info]	[streamChoices] solution 0 returned. finish reason: [stop]
+
+!ENTRY org.eclipse.lsp4e 1 0 2025-08-17 22:11:02.231
+!MESSAGE [Info]	[fetchCompletions] Request e54bc912-0561-44a0-a037-7a23c5c1c170 at <https://proxy.individual.githubcopilot.com/v1/engines/gpt-4o-copilot/completions> finished with 200 status after 343.3824000004679ms
+
+!ENTRY org.eclipse.lsp4e 1 0 2025-08-17 22:11:02.294
+!MESSAGE [Info]	[streamChoices] solution 0 returned. finish reason: [stop]
+
+!ENTRY org.eclipse.lsp4e 1 0 2025-08-17 22:11:02.843
+!MESSAGE [Info]	[fetchCompletions] Request 16745015-6bf2-41c1-9f3b-67722052e645 at <https://proxy.individual.githubcopilot.com/v1/engines/gpt-4o-copilot/completions> finished with 200 status after 473.92760000005364ms
+
+!ENTRY org.eclipse.lsp4e 1 0 2025-08-17 22:11:02.844
+!MESSAGE [Info]	[streamChoices] solution 0 returned. finish reason: [null]
+
+!ENTRY org.eclipse.lsp4e 1 0 2025-08-17 22:11:07.288
+!MESSAGE [Info]	[fetchCompletions] Request 033f4a33-8414-4016-a8d4-757dcae27a78 at <https://proxy.individual.githubcopilot.com/v1/engines/gpt-4o-copilot/completions> finished with 200 status after 582.3093999996781ms
+
+!ENTRY org.eclipse.lsp4e 1 0 2025-08-17 22:11:07.289
+!MESSAGE [Info]	[streamChoices] solution 0 returned. finish reason: [stop]
+
+!ENTRY org.eclipse.lsp4e 1 0 2025-08-17 22:11:09.875
+!MESSAGE [Info]	[fetchCompletions] Request b0be16d6-5426-4807-acb1-c769fb71ada8 at <https://proxy.individual.githubcopilot.com/v1/engines/gpt-4o-copilot/completions> finished with 200 status after 972.5945000005886ms
+
+!ENTRY org.eclipse.lsp4e 1 0 2025-08-17 22:11:09.889
+!MESSAGE [Info]	[streamChoices] solution 0 returned. finish reason: [stop]
+
+!ENTRY org.eclipse.lsp4e 1 0 2025-08-17 22:11:10.345
+!MESSAGE [Info]	[fetchCompletions] Request ec90a8b7-565b-4d9f-a967-2d8ce8e7d38a at <https://proxy.individual.githubcopilot.com/v1/engines/gpt-4o-copilot/completions> finished with 200 status after 397.74859999958426ms
+
+!ENTRY org.eclipse.lsp4e 1 0 2025-08-17 22:11:10.405
+!MESSAGE [Info]	[streamChoices] solution 0 returned. finish reason: [null]
+
+!ENTRY org.eclipse.lsp4e 1 0 2025-08-17 22:11:13.544
+!MESSAGE [Info]	[fetchCompletions] Request 43e31300-7c74-4ab5-aeef-595a9e368608 at <https://proxy.individual.githubcopilot.com/v1/engines/gpt-4o-copilot/completions> finished with 200 status after 1213.4749999996275ms
+
+!ENTRY org.eclipse.lsp4e 1 0 2025-08-17 22:11:13.591
+!MESSAGE [Info]	[streamChoices] solution 0 returned. finish reason: [stop]
+
+!ENTRY org.eclipse.lsp4e 1 0 2025-08-17 22:11:16.806
+!MESSAGE [Info]	[fetchCompletions] Request 35b7b199-f946-4c31-b6f9-fcbdee49e93b at <https://proxy.individual.githubcopilot.com/v1/engines/gpt-4o-copilot/completions> finished with 200 status after 364.8635999998078ms
+
+!ENTRY org.eclipse.lsp4e 1 0 2025-08-17 22:11:20.748
+!MESSAGE [Info]	[fetchCompletions] Request 145cbeae-e81c-4a4c-97cd-b1c2632d099d at <https://proxy.individual.githubcopilot.com/v1/engines/gpt-4o-copilot/completions> finished with 200 status after 1214.511300000362ms
+
+!ENTRY org.eclipse.lsp4e 1 0 2025-08-17 22:11:46.767
+!MESSAGE [Info]	[fetchCompletions] Request 9939eb3c-32aa-47e7-b00a-6336b9854c98 at <https://proxy.individual.githubcopilot.com/v1/engines/gpt-4o-copilot/completions> finished with 200 status after 432.5152000002563ms
+
+!ENTRY org.eclipse.lsp4e 1 0 2025-08-17 22:11:46.767
+!MESSAGE [Info]	[streamChoices] solution 0 returned. finish reason: [stop]
+
+!ENTRY org.eclipse.lsp4e 1 0 2025-08-17 22:11:47.250
+!MESSAGE [Info]	[fetchCompletions] Request a5eb7270-b07d-4755-a472-7b47a18861a8 at <https://proxy.individual.githubcopilot.com/v1/engines/gpt-4o-copilot/completions> finished with 200 status after 378.58560000080615ms
+
+!ENTRY org.eclipse.lsp4e 1 0 2025-08-17 22:11:47.292
+!MESSAGE [Info]	[streamChoices] solution 0 returned. finish reason: [stop]
+
+!ENTRY org.eclipse.lsp4e 1 0 2025-08-17 22:11:47.650
+!MESSAGE [Info]	[fetchCompletions] Request e16e20b8-61cc-4fad-9cdd-709580f5f850 at <https://proxy.individual.githubcopilot.com/v1/engines/gpt-4o-copilot/completions> finished with 200 status after 333.78519999980927ms
+
+!ENTRY org.eclipse.lsp4e 1 0 2025-08-17 22:11:47.781
+!MESSAGE [Info]	[streamChoices] solution 0 returned. finish reason: [stop]
+
+!ENTRY org.eclipse.lsp4e 1 0 2025-08-17 22:11:49.987
+!MESSAGE [Info]	[fetchCompletions] Request a9d785da-c1c7-4046-9d4a-cc18a9d4bd1c at <https://proxy.individual.githubcopilot.com/v1/engines/gpt-4o-copilot/completions> finished with 200 status after 399.49100000038743ms
+
+!ENTRY org.eclipse.lsp4e 1 0 2025-08-17 22:11:49.988
+!MESSAGE [Info]	[streamChoices] solution 0 returned. finish reason: [stop]
+
+!ENTRY org.eclipse.lsp4e 1 0 2025-08-17 22:12:30.436
+!MESSAGE [Info]	[fetchCompletions] Request 2de761df-093f-4e6a-a070-1c7062394ff8 at <https://proxy.individual.githubcopilot.com/v1/engines/gpt-4o-copilot/completions> finished with 200 status after 2015.2303999997675ms
+
+!ENTRY org.eclipse.lsp4e 1 0 2025-08-17 22:12:30.472
+!MESSAGE [Info]	[streamChoices] solution 0 returned. finish reason: [stop]
+
+!ENTRY org.eclipse.lsp4e 1 0 2025-08-17 22:12:36.109
+!MESSAGE [Info]	[fetchCompletions] Request 6384f3bf-d603-4890-9840-7ba7f2d801e2 at <https://proxy.individual.githubcopilot.com/v1/engines/gpt-4o-copilot/completions> finished with 200 status after 589.8282000003383ms
+
+!ENTRY org.eclipse.lsp4e 1 0 2025-08-17 22:12:36.131
+!MESSAGE [Info]	[streamChoices] solution 0 returned. finish reason: [stop]
+
+!ENTRY org.eclipse.lsp4e 1 0 2025-08-17 22:12:36.966
+!MESSAGE [Info]	[fetchCompletions] Request a174dc8c-97b7-45b5-b744-f640f734c919 at <https://proxy.individual.githubcopilot.com/v1/engines/gpt-4o-copilot/completions> finished with 200 status after 407.4848999995738ms
+
+!ENTRY org.eclipse.lsp4e 1 0 2025-08-17 22:12:36.992
+!MESSAGE [Info]	[streamChoices] solution 0 returned. finish reason: [stop]
+
+!ENTRY org.eclipse.lsp4e 1 0 2025-08-17 22:13:30.044
+!MESSAGE [Info]	[fetchCompletions] Request bb3324b7-8aa7-4f05-8365-5d08ad7b05cd at <https://proxy.individual.githubcopilot.com/v1/engines/gpt-4o-copilot/completions> finished with 200 status after 1490.8180999998003ms
+
+!ENTRY org.eclipse.lsp4e 1 0 2025-08-17 22:13:30.132
+!MESSAGE [Info]	[streamChoices] solution 0 returned. finish reason: [stop]
+
+!ENTRY org.eclipse.lsp4e 1 0 2025-08-17 22:13:36.428
+!MESSAGE [Info]	[fetchCompletions] Request b6224dca-053c-4b29-88ef-00bebde23c5c at <https://proxy.individual.githubcopilot.com/v1/engines/gpt-4o-copilot/completions> finished with 200 status after 448.69799999985844ms
+
+!ENTRY org.eclipse.lsp4e 1 0 2025-08-17 22:13:36.429
+!MESSAGE [Info]	[streamChoices] solution 0 returned. finish reason: [stop]
+
+!ENTRY org.eclipse.lsp4e 1 0 2025-08-17 22:13:37.678
+!MESSAGE [Info]	[fetchCompletions] Request 33d76cac-6118-445a-9047-17aefdae9d7a at <https://proxy.individual.githubcopilot.com/v1/engines/gpt-4o-copilot/completions> finished with 200 status after 382.34029999934137ms
+
+!ENTRY org.eclipse.lsp4e 1 0 2025-08-17 22:13:37.713
+!MESSAGE [Info]	[streamChoices] solution 0 returned. finish reason: [stop]
+
+!ENTRY com.microsoft.copilot.eclipse 1 0 2025-08-17 22:14:28.148
+!MESSAGE [Info] Language ID not found for extension: xml
+
+!ENTRY org.eclipse.lsp4e 1 0 2025-08-17 22:14:29.226
+!MESSAGE [Info]	[fetchCompletions] Request 6ba09f65-8564-4716-95d9-c37a41ffe073 at <https://proxy.individual.githubcopilot.com/v1/engines/gpt-4o-copilot/completions> finished with 200 status after 407.3092000000179ms
+
+!ENTRY org.eclipse.lsp4e 1 0 2025-08-17 22:14:29.797
+!MESSAGE [Info]	[streamChoices] solution 0 returned. finish reason: [stop]
+
+!ENTRY org.eclipse.lsp4e 1 0 2025-08-17 22:14:30.226
+!MESSAGE [Info]	[fetchCompletions] Request bb6af6e2-470f-483e-a118-1d9278447f96 at <https://proxy.individual.githubcopilot.com/v1/engines/gpt-4o-copilot/completions> finished with 200 status after 394.267100000754ms
+
+!ENTRY org.eclipse.lsp4e 1 0 2025-08-17 22:14:31.504
+!MESSAGE [Info]	[streamChoices] solution 0 returned. finish reason: [stop]
+
+!ENTRY org.eclipse.lsp4e 1 0 2025-08-17 22:14:32.010
+!MESSAGE [Info]	[streamChoices] solution 0 returned. finish reason: [stop]
+
+!ENTRY org.eclipse.lsp4e 1 0 2025-08-17 22:14:32.010
+!MESSAGE [Info]	[fetchCompletions] Request 4322c70c-aac1-4dfa-903b-5f4a1f6b37ce at <https://proxy.individual.githubcopilot.com/v1/engines/gpt-4o-copilot/completions> finished with 200 status after 454.2211999995634ms
+
+!ENTRY org.eclipse.lsp4e 1 0 2025-08-17 22:29:19.293
+!MESSAGE [Info]	[fetchCompletions] Request c842edfd-ade6-4b67-b6ec-29c336cc956d at <https://proxy.individual.githubcopilot.com/v1/engines/gpt-4o-copilot/completions> finished with 200 status after 3965.785600000061ms
+
+!ENTRY org.eclipse.lsp4e 1 0 2025-08-17 22:29:19.360
+!MESSAGE [Info]	[streamChoices] solution 0 returned. finish reason: [stop]
+
+!ENTRY org.eclipse.lsp4e 1 0 2025-08-17 22:30:04.770
+!MESSAGE [Info]	[fetchCompletions] Request 4b2bb859-6cef-4db2-857a-5a23c80d14f4 at <https://proxy.individual.githubcopilot.com/v1/engines/gpt-4o-copilot/completions> finished with 200 status after 627.503700000234ms
+
+!ENTRY org.eclipse.lsp4e 1 0 2025-08-17 22:30:04.771
+!MESSAGE [Info]	[streamChoices] solution 0 returned. finish reason: [stop]
+
+!ENTRY org.eclipse.lsp4e 1 0 2025-08-17 22:30:16.023
+!MESSAGE [Info]	[fetchCompletions] Request 24fc3a1a-af80-42c8-b07e-8311b49b0156 at <https://proxy.individual.githubcopilot.com/v1/engines/gpt-4o-copilot/completions> finished with 200 status after 993.7937000002712ms
+
+!ENTRY org.eclipse.lsp4e 1 0 2025-08-17 22:30:16.023
+!MESSAGE [Info]	[streamChoices] solution 0 returned. finish reason: [stop]
+
+!ENTRY org.eclipse.lsp4e 1 0 2025-08-17 22:30:42.338
+!MESSAGE [Info]	[fetchCompletions] Request 96ed30fd-5274-43ae-acb3-73ba610af9dd at <https://proxy.individual.githubcopilot.com/v1/engines/gpt-4o-copilot/completions> finished with 200 status after 379.0988000007346ms
+
+!ENTRY org.eclipse.lsp4e 1 0 2025-08-17 22:30:42.453
+!MESSAGE [Info]	[streamChoices] solution 0 returned. finish reason: [stop]
+
+!ENTRY org.eclipse.lsp4e 1 0 2025-08-17 22:31:13.127
+!MESSAGE [Info]	[fetchCompletions] Request 4e023525-56a0-423a-a5d8-5cecd946fd4d at <https://proxy.individual.githubcopilot.com/v1/engines/gpt-4o-copilot/completions> finished with 200 status after 581.4378999993205ms
+
+!ENTRY org.eclipse.lsp4e 1 0 2025-08-17 22:31:13.128
+!MESSAGE [Info]	[streamChoices] solution 0 returned. finish reason: [stop]
+
+!ENTRY org.eclipse.lsp4e 1 0 2025-08-17 22:31:26.902
+!MESSAGE [Info]	[fetchCompletions] Request 52b02d9d-af75-4e34-abb9-a99d4931bdbb at <https://proxy.individual.githubcopilot.com/v1/engines/gpt-4o-copilot/completions> finished with 200 status after 979.0275999996811ms
+
+!ENTRY org.eclipse.lsp4e 1 0 2025-08-17 22:31:26.946
+!MESSAGE [Info]	[streamChoices] solution 0 returned. finish reason: [stop]
+
+!ENTRY org.eclipse.lsp4e 1 0 2025-08-17 22:31:27.396
+!MESSAGE [Info]	[fetchCompletions] Request 59b05ce1-41ec-4151-b997-61dd5e182ab7 at <https://proxy.individual.githubcopilot.com/v1/engines/gpt-4o-copilot/completions> finished with 200 status after 399.76340000052005ms
+
+!ENTRY org.eclipse.lsp4e 1 0 2025-08-17 22:31:27.402
+!MESSAGE [Info]	[streamChoices] solution 0 returned. finish reason: [stop]
+
+!ENTRY org.eclipse.lsp4e 1 0 2025-08-17 22:32:48.927
+!MESSAGE [Info]	[fetchCompletions] Request 532dd0ab-0778-44df-8c86-54ae8af9e1d8 at <https://proxy.individual.githubcopilot.com/v1/engines/gpt-4o-copilot/completions> finished with 200 status after 711.975700000301ms
+
+!ENTRY org.eclipse.lsp4e 1 0 2025-08-17 22:32:48.957
+!MESSAGE [Info]	[streamChoices] solution 0 returned. finish reason: [stop]
+
+!ENTRY org.eclipse.lsp4e 1 0 2025-08-17 22:33:18.855
+!MESSAGE [Info]	[fetchCompletions] Request 8f223914-aecb-4700-992c-2d4b79f613bf at <https://proxy.individual.githubcopilot.com/v1/engines/gpt-4o-copilot/completions> finished with 200 status after 441.9813000001013ms
+
+!ENTRY org.eclipse.lsp4e 1 0 2025-08-17 22:33:19.092
+!MESSAGE [Info]	[streamChoices] solution 0 returned. finish reason: [stop]
+
+!ENTRY org.eclipse.lsp4e 1 0 2025-08-17 22:33:19.639
+!MESSAGE [Info]	[fetchCompletions] Request 933ac75c-fef3-4282-96d3-c8bbe9b87bf0 at <https://proxy.individual.githubcopilot.com/v1/engines/gpt-4o-copilot/completions> finished with 200 status after 361.98209999967366ms
+
+!ENTRY org.eclipse.lsp4e 1 0 2025-08-17 22:33:19.724
+!MESSAGE [Info]	[streamChoices] solution 0 returned. finish reason: [stop]
+
+!ENTRY org.eclipse.lsp4e 1 0 2025-08-17 22:33:20.109
+!MESSAGE [Info]	[fetchCompletions] Request 0ef77ef7-9169-4cba-b5e1-e1a91806508d at <https://proxy.individual.githubcopilot.com/v1/engines/gpt-4o-copilot/completions> finished with 200 status after 348.1418000003323ms
+
+!ENTRY org.eclipse.lsp4e 1 0 2025-08-17 22:33:20.160
+!MESSAGE [Info]	[streamChoices] solution 0 returned. finish reason: [null]
+
+!ENTRY org.eclipse.lsp4e 1 0 2025-08-17 22:33:21.275
+!MESSAGE [Info]	[fetchCompletions] Request 769a886e-5fce-4f70-86d8-3a654ca78f33 at <https://proxy.individual.githubcopilot.com/v1/engines/gpt-4o-copilot/completions> finished with 200 status after 837.7194000007585ms
+
+!ENTRY org.eclipse.lsp4e 1 0 2025-08-17 22:33:21.351
+!MESSAGE [Info]	[streamChoices] solution 0 returned. finish reason: [stop]
+
+!ENTRY org.eclipse.lsp4e 1 0 2025-08-17 22:33:22.063
+!MESSAGE [Info]	[fetchCompletions] Request e56aed4c-584d-428a-8815-5b6c977f06f7 at <https://proxy.individual.githubcopilot.com/v1/engines/gpt-4o-copilot/completions> finished with 200 status after 689.2909999992698ms
+
+!ENTRY org.eclipse.lsp4e 1 0 2025-08-17 22:33:22.069
+!MESSAGE [Info]	[streamChoices] solution 0 returned. finish reason: [stop]
+
+!ENTRY org.eclipse.lsp4e 1 0 2025-08-17 22:33:23.203
+!MESSAGE [Info]	[fetchCompletions] Request 667b45c5-b47a-4bf3-8183-a6c66226d5ba at <https://proxy.individual.githubcopilot.com/v1/engines/gpt-4o-copilot/completions> finished with 200 status after 393.41569999977946ms
+
+!ENTRY org.eclipse.lsp4e 1 0 2025-08-17 22:33:23.212
+!MESSAGE [Info]	[streamChoices] solution 0 returned. finish reason: [stop]
+
+!ENTRY org.eclipse.lsp4e 1 0 2025-08-17 22:33:23.558
+!MESSAGE [Info]	[fetchCompletions] Request cb17d707-93f4-42a4-aff2-dbd20416be2d at <https://proxy.individual.githubcopilot.com/v1/engines/gpt-4o-copilot/completions> finished with 200 status after 325.6688000001013ms
+
+!ENTRY org.eclipse.lsp4e 1 0 2025-08-17 22:33:23.656
+!MESSAGE [Info]	[streamChoices] solution 0 returned. finish reason: [null]
+
+!ENTRY org.eclipse.lsp4e 1 0 2025-08-17 22:33:24.131
+!MESSAGE [Info]	[fetchCompletions] Request 0b86d2ed-84b1-46b0-ad47-8736cc3437ef at <https://proxy.individual.githubcopilot.com/v1/engines/gpt-4o-copilot/completions> finished with 200 status after 442.0848000003025ms
+
+!ENTRY org.eclipse.lsp4e 1 0 2025-08-17 22:33:24.225
+!MESSAGE [Info]	[streamChoices] solution 0 returned. finish reason: [stop]
+
+!ENTRY org.eclipse.lsp4e 1 0 2025-08-17 22:33:25.845
+!MESSAGE [Info]	[fetchCompletions] Request 0d2c6633-2eb8-46cd-bb1f-c5b1498d2322 at <https://proxy.individual.githubcopilot.com/v1/engines/gpt-4o-copilot/completions> finished with 200 status after 1528.2697000000626ms
+
+!ENTRY org.eclipse.lsp4e 1 0 2025-08-17 22:33:25.846
+!MESSAGE [Info]	[streamChoices] solution 0 returned. finish reason: [null]
+
+!ENTRY org.eclipse.lsp4e 1 0 2025-08-17 22:33:45.530
+!MESSAGE [Info]	[fetchCompletions] Request ad4c8a68-b89a-4ef3-9dc1-a87a090e270a at <https://proxy.individual.githubcopilot.com/v1/engines/gpt-4o-copilot/completions> finished with 200 status after 379.11770000029355ms
+
+!ENTRY org.eclipse.lsp4e 1 0 2025-08-17 22:33:45.559
+!MESSAGE [Info]	[streamChoices] solution 0 returned. finish reason: [null]
+
+!ENTRY org.eclipse.lsp4e 1 0 2025-08-17 23:00:54.449
+!MESSAGE [Log]	[2025-17-08 11:00:54.429 PM] warn: 	Tree sitter - isInComment - Error: Error: Could not find parser language for languageId: xml
+
+!ENTRY org.eclipse.lsp4e 1 0 2025-08-17 23:00:57.559
+!MESSAGE [Log]	[2025-17-08 11:00:57.550 PM] warn: 	Tree sitter - isInComment - Error: Error: Could not find parser language for languageId: xml
+
+!ENTRY org.eclipse.lsp4e 1 0 2025-08-17 23:01:02.852
+!MESSAGE [Log]	[2025-17-08 11:01:02.847 PM] warn: 	Tree sitter - isInComment - Error: Error: Could not find parser language for languageId: xml
+
+!ENTRY org.eclipse.lsp4e 1 0 2025-08-17 23:01:05.342
+!MESSAGE [Log]	[2025-17-08 11:01:05.340 PM] warn: 	Tree sitter - isInComment - Error: Error: Could not find parser language for languageId: xml
+
+!ENTRY org.eclipse.lsp4e 1 0 2025-08-17 23:01:08.589
+!MESSAGE [Log]	[2025-17-08 11:01:08.586 PM] warn: 	Tree sitter - isInComment - Error: Error: Could not find parser language for languageId: xml
+
+!ENTRY org.eclipse.lsp4e 1 0 2025-08-17 23:01:11.020
+!MESSAGE [Log]	[2025-17-08 11:01:11.018 PM] warn: 	Tree sitter - isInComment - Error: Error: Could not find parser language for languageId: xml
+
+!ENTRY com.microsoft.copilot.eclipse 1 0 2025-08-17 23:26:44.378
+!MESSAGE [Info] Document is null for editor: pom.xml
+
+!ENTRY com.microsoft.copilot.eclipse 1 0 2025-08-17 23:26:44.381
+!MESSAGE [Info] Completion handler is refreshed for the document: file:///C:/Users/Saif%20ali%20khan/Downloads/media/media/pom.xml
+
+!ENTRY com.microsoft.copilot.eclipse 1 0 2025-08-17 23:26:44.535
+!MESSAGE [Info] Document is null for editor: application.properties
+
+!ENTRY com.microsoft.copilot.eclipse 1 0 2025-08-17 23:26:44.535
+!MESSAGE [Info] Completion handler is refreshed for the document: file:///C:/Users/Saif%20ali%20khan/Downloads/media/media/src/main/resources/application.properties
+
+!ENTRY com.microsoft.copilot.eclipse 1 0 2025-08-17 23:26:44.652
+!MESSAGE [Info] Document is null for editor: AdminUser.java
+
+!ENTRY com.microsoft.copilot.eclipse 1 0 2025-08-17 23:26:44.652
+!MESSAGE [Info] Completion handler is refreshed for the document: file:///C:/Users/Saif%20ali%20khan/Downloads/media/media/src/main/java/com/Klantroef/model/AdminUser.java
+
+!ENTRY com.microsoft.copilot.eclipse 1 0 2025-08-17 23:26:44.696
+!MESSAGE [Info] Document is null for editor: MediaAsset.java
+
+!ENTRY com.microsoft.copilot.eclipse 1 0 2025-08-17 23:26:44.696
+!MESSAGE [Info] Completion handler is refreshed for the document: file:///C:/Users/Saif%20ali%20khan/Downloads/media/media/src/main/java/com/Klantroef/model/MediaAsset.java
+
+!ENTRY com.microsoft.copilot.eclipse 1 0 2025-08-17 23:26:44.735
+!MESSAGE [Info] Document is null for editor: MediaViewLog.java
+
+!ENTRY com.microsoft.copilot.eclipse 1 0 2025-08-17 23:26:44.736
+!MESSAGE [Info] Completion handler is refreshed for the document: file:///C:/Users/Saif%20ali%20khan/Downloads/media/media/src/main/java/com/Klantroef/model/MediaViewLog.java
+
+!ENTRY com.microsoft.copilot.eclipse 1 0 2025-08-17 23:26:44.775
+!MESSAGE [Info] Document is null for editor: AuthRequest.java
+
+!ENTRY com.microsoft.copilot.eclipse 1 0 2025-08-17 23:26:44.775
+!MESSAGE [Info] Completion handler is refreshed for the document: file:///C:/Users/Saif%20ali%20khan/Downloads/media/media/src/main/java/com/Klantroef/dto/AuthRequest.java
+
+!ENTRY com.microsoft.copilot.eclipse 1 0 2025-08-17 23:26:44.813
+!MESSAGE [Info] Document is null for editor: SignUpRequest.java
+
+!ENTRY com.microsoft.copilot.eclipse 1 0 2025-08-17 23:26:44.814
+!MESSAGE [Info] Completion handler is refreshed for the document: file:///C:/Users/Saif%20ali%20khan/Downloads/media/media/src/main/java/com/Klantroef/dto/SignUpRequest.java
+
+!ENTRY com.microsoft.copilot.eclipse 1 0 2025-08-17 23:26:44.850
+!MESSAGE [Info] Document is null for editor: JwtResponse.java
+
+!ENTRY com.microsoft.copilot.eclipse 1 0 2025-08-17 23:26:44.850
+!MESSAGE [Info] Completion handler is refreshed for the document: file:///C:/Users/Saif%20ali%20khan/Downloads/media/media/src/main/java/com/Klantroef/dto/JwtResponse.java
+
+!ENTRY com.microsoft.copilot.eclipse 1 0 2025-08-17 23:26:44.886
+!MESSAGE [Info] Document is null for editor: MediaRequest.java
+
+!ENTRY com.microsoft.copilot.eclipse 1 0 2025-08-17 23:26:44.887
+!MESSAGE [Info] Completion handler is refreshed for the document: file:///C:/Users/Saif%20ali%20khan/Downloads/media/media/src/main/java/com/Klantroef/dto/MediaRequest.java
+
+!ENTRY com.microsoft.copilot.eclipse 1 0 2025-08-17 23:26:44.924
+!MESSAGE [Info] Document is null for editor: StreamUrlResponse.java
+
+!ENTRY com.microsoft.copilot.eclipse 1 0 2025-08-17 23:26:44.925
+!MESSAGE [Info] Completion handler is refreshed for the document: file:///C:/Users/Saif%20ali%20khan/Downloads/media/media/src/main/java/com/Klantroef/dto/StreamUrlResponse.java
+
+!ENTRY com.microsoft.copilot.eclipse 1 0 2025-08-17 23:26:44.959
+!MESSAGE [Info] Document is null for editor: AdminUserRepository.java
+
+!ENTRY com.microsoft.copilot.eclipse 1 0 2025-08-17 23:26:44.960
+!MESSAGE [Info] Completion handler is refreshed for the document: file:///C:/Users/Saif%20ali%20khan/Downloads/media/media/src/main/java/com/Klantroef/repository/AdminUserRepository.java
+
+!ENTRY com.microsoft.copilot.eclipse 1 0 2025-08-17 23:26:44.996
+!MESSAGE [Info] Document is null for editor: MediaAssetRepository.java
+
+!ENTRY com.microsoft.copilot.eclipse 1 0 2025-08-17 23:26:44.996
+!MESSAGE [Info] Completion handler is refreshed for the document: file:///C:/Users/Saif%20ali%20khan/Downloads/media/media/src/main/java/com/Klantroef/repository/MediaAssetRepository.java
+
+!ENTRY com.microsoft.copilot.eclipse 1 0 2025-08-17 23:26:45.034
+!MESSAGE [Info] Document is null for editor: JwtUtil.java
+
+!ENTRY com.microsoft.copilot.eclipse 1 0 2025-08-17 23:26:45.034
+!MESSAGE [Info] Completion handler is refreshed for the document: file:///C:/Users/Saif%20ali%20khan/Downloads/media/media/src/main/java/com/Klantroef/security/JwtUtil.java
+
+!ENTRY com.microsoft.copilot.eclipse 1 0 2025-08-17 23:26:45.126
+!MESSAGE [Info] Document is null for editor: CustomUserDetailsService.java
+
+!ENTRY com.microsoft.copilot.eclipse 1 0 2025-08-17 23:26:45.127
+!MESSAGE [Info] Completion handler is refreshed for the document: file:///C:/Users/Saif%20ali%20khan/Downloads/media/media/src/main/java/com/Klantroef/security/CustomUserDetailsService.java
+
+!ENTRY com.microsoft.copilot.eclipse 1 0 2025-08-17 23:26:45.162
+!MESSAGE [Info] Document is null for editor: JwtRequestFilter.java
+
+!ENTRY com.microsoft.copilot.eclipse 1 0 2025-08-17 23:26:45.162
+!MESSAGE [Info] Completion handler is refreshed for the document: file:///C:/Users/Saif%20ali%20khan/Downloads/media/media/src/main/java/com/Klantroef/security/JwtRequestFilter.java
+
+!ENTRY com.microsoft.copilot.eclipse 1 0 2025-08-17 23:26:45.196
+!MESSAGE [Info] Document is null for editor: SecurityConfig.java
+
+!ENTRY com.microsoft.copilot.eclipse 1 0 2025-08-17 23:26:45.197
+!MESSAGE [Info] Completion handler is refreshed for the document: file:///C:/Users/Saif%20ali%20khan/Downloads/media/media/src/main/java/com/Klantroef/security/SecurityConfig.java
+
+!ENTRY com.microsoft.copilot.eclipse 1 0 2025-08-17 23:26:45.231
+!MESSAGE [Info] Document is null for editor: AuthService.java
+
+!ENTRY com.microsoft.copilot.eclipse 1 0 2025-08-17 23:26:45.232
+!MESSAGE [Info] Completion handler is refreshed for the document: file:///C:/Users/Saif%20ali%20khan/Downloads/media/media/src/main/java/com/Klantroef/service/AuthService.java
+
+!ENTRY com.microsoft.copilot.eclipse 1 0 2025-08-17 23:26:45.278
+!MESSAGE [Info] Document is null for editor: AuthController.java
+
+!ENTRY com.microsoft.copilot.eclipse 1 0 2025-08-17 23:26:45.279
+!MESSAGE [Info] Completion handler is refreshed for the document: file:///C:/Users/Saif%20ali%20khan/Downloads/media/media/src/main/java/com/Klantroef/controller/AuthController.java
+
+!ENTRY com.microsoft.copilot.eclipse 1 0 2025-08-17 23:26:45.310
+!MESSAGE [Info] Document is null for editor: MediaController.java
+
+!ENTRY com.microsoft.copilot.eclipse 1 0 2025-08-17 23:26:45.311
+!MESSAGE [Info] Completion handler is refreshed for the document: file:///C:/Users/Saif%20ali%20khan/Downloads/media/media/src/main/java/com/Klantroef/controller/MediaController.java
+
+!ENTRY com.microsoft.copilot.eclipse 1 0 2025-08-17 23:26:45.345
+!MESSAGE [Info] Document is null for editor: MediaService.java
+
+!ENTRY com.microsoft.copilot.eclipse 1 0 2025-08-17 23:26:45.346
+!MESSAGE [Info] Completion handler is refreshed for the document: file:///C:/Users/Saif%20ali%20khan/Downloads/media/media/src/main/java/com/Klantroef/service/MediaService.java
+
+!ENTRY com.microsoft.copilot.eclipse 1 0 2025-08-17 23:26:45.399
+!MESSAGE [Info] Document is null for editor: MediaApplication.java
+
+!ENTRY com.microsoft.copilot.eclipse 1 0 2025-08-17 23:26:45.399
+!MESSAGE [Info] Completion handler is refreshed for the document: file:///C:/Users/Saif%20ali%20khan/Downloads/media/media/src/main/java/com/Klantroef/MediaApplication.java
+!SESSION 2025-08-17 23:28:09.312 -----------------------------------------------
+eclipse.buildId=4.34.0.20241128-0756
+java.version=23.0.2
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.jee.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.jee.product
+
+!ENTRY org.eclipse.eclemma.core 4 0 2025-08-17 23:28:13.001
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: org.eclipse.eclemma.core [322]
+  Unresolved requirement: Require-Bundle: org.jacoco.core; bundle-version="[0.8.12,0.8.13)"
+    -> Bundle-SymbolicName: org.jacoco.core; bundle-version="0.8.12.202403310830"
+       org.jacoco.core [961]
+         Unresolved requirement: Import-Package: org.objectweb.asm.tree; version="[9.7.0,9.8.0)"
+           -> Export-Package: org.objectweb.asm.tree; bundle-symbolic-name="org.objectweb.asm.tree"; bundle-version="9.7.1"; version="9.7.1"; uses:="org.objectweb.asm,org.objectweb.asm.signature"
+              org.objectweb.asm.tree [973]
+                Unresolved requirement: Import-Package: org.objectweb.asm; version="9.7.1"
+                  -> Export-Package: org.objectweb.asm; bundle-symbolic-name="org.objectweb.asm"; bundle-version="9.7.1"; version="9.7.1"
+                     org.objectweb.asm [971]
+                       No resolution report for the bundle.                Unresolved requirement: Import-Package: org.objectweb.asm.signature; version="9.7.1"
+                  -> Export-Package: org.objectweb.asm.signature; bundle-symbolic-name="org.objectweb.asm"; bundle-version="9.7.1"; version="9.7.1"
+         Unresolved requirement: Import-Package: org.objectweb.asm; version="[9.7.0,9.8.0)"
+           -> Export-Package: org.objectweb.asm; bundle-symbolic-name="org.objectweb.asm"; bundle-version="9.7.1"; version="9.7.1"
+  Unresolved requirement: Require-Bundle: org.jacoco.agent; bundle-version="[0.8.12,0.8.13)"
+    -> Bundle-SymbolicName: org.jacoco.agent; bundle-version="0.8.12.202403310830"
+       org.jacoco.agent [960]
+         No resolution report for the bundle.  Unresolved requirement: Require-Bundle: org.jacoco.report; bundle-version="[0.8.12,0.8.13)"
+    -> Bundle-SymbolicName: org.jacoco.report; bundle-version="0.8.12.202403310830"
+       org.jacoco.report [962]
+         Unresolved requirement: Import-Package: org.jacoco.core.analysis; version="[0.8.12,0.8.13)"
+           -> Export-Package: org.jacoco.core.analysis; bundle-symbolic-name="org.jacoco.core"; bundle-version="0.8.12.202403310830"; version="0.8.12"; uses:="org.jacoco.core.data,org.jacoco.core.internal.analysis"
+         Unresolved requirement: Import-Package: org.objectweb.asm; version="[9.7.0,9.8.0)"
+           -> Export-Package: org.objectweb.asm; bundle-symbolic-name="org.objectweb.asm"; bundle-version="9.7.1"; version="9.7.1"
+         Unresolved requirement: Import-Package: org.jacoco.core.data; version="[0.8.12,0.8.13)"
+           -> Export-Package: org.jacoco.core.data; bundle-symbolic-name="org.jacoco.core"; bundle-version="0.8.12.202403310830"; version="0.8.12"; uses:="org.jacoco.core.internal.data"
+         Unresolved requirement: Import-Package: org.jacoco.core; version="[0.8.12,0.8.13)"
+           -> Export-Package: org.jacoco.core; bundle-symbolic-name="org.jacoco.core"; bundle-version="0.8.12.202403310830"; version="0.8.12"
+         Unresolved requirement: Import-Package: org.jacoco.core.runtime; version="[0.8.12,0.8.13)"
+           -> Export-Package: org.jacoco.core.runtime; bundle-symbolic-name="org.jacoco.core"; bundle-version="0.8.12.202403310830"; version="0.8.12"; uses:="org.jacoco.core.data,org.objectweb.asm"
+  Bundle was not resolved because of a uses constraint violation.
+  org.apache.felix.resolver.reason.ReasonException: Uses constraint violation. Unable to resolve resource org.jacoco.core [osgi.identity; type="osgi.bundle"; version:Version="0.8.12.202403310830"; osgi.identity="org.jacoco.core"] because it is exposed to package 'org.objectweb.asm' from resources org.objectweb.asm [osgi.identity; type="osgi.bundle"; version:Version="9.7.1"; osgi.identity="org.objectweb.asm"] and org.objectweb.asm [osgi.identity; type="osgi.bundle"; version:Version="9.8.0"; osgi.identity="org.objectweb.asm"] via two dependency chains.
+
+Chain 1:
+  org.jacoco.core [osgi.identity; type="osgi.bundle"; version:Version="0.8.12.202403310830"; osgi.identity="org.jacoco.core"]
+    import: (&(osgi.wiring.package=org.objectweb.asm)(&(version>=9.7.0)(!(version>=9.8.0))))
+     |
+    export: osgi.wiring.package: org.objectweb.asm
+  org.objectweb.asm [osgi.identity; type="osgi.bundle"; version:Version="9.7.1"; osgi.identity="org.objectweb.asm"]
+
+Chain 2:
+  org.jacoco.core [osgi.identity; type="osgi.bundle"; version:Version="0.8.12.202403310830"; osgi.identity="org.jacoco.core"]
+    import: (&(osgi.wiring.package=org.objectweb.asm.commons)(&(version>=9.7.0)(!(version>=9.8.0))))
+     |
+    export: osgi.wiring.package=org.objectweb.asm.commons; uses:=org.objectweb.asm
+  org.objectweb.asm.commons [osgi.identity; type="osgi.bundle"; version:Version="9.7.1"; osgi.identity="org.objectweb.asm.commons"]
+    import: (&(osgi.wiring.package=org.objectweb.asm)(version>=9.7.1))
+     |
+    export: osgi.wiring.package: org.objectweb.asm
+  org.objectweb.asm [osgi.identity; type="osgi.bundle"; version:Version="9.8.0"; osgi.identity="org.objectweb.asm"]
+	at org.eclipse.osgi.container.Module.start(Module.java:493)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel$2.run(ModuleContainer.java:2102)
+	at org.eclipse.osgi.internal.framework.EquinoxContainerAdaptor$1$1.execute(EquinoxContainerAdaptor.java:143)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:2093)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:2033)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1996)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1912)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:230)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:341)
+
+!ENTRY org.eclipse.eclemma.ui 4 0 2025-08-17 23:28:13.010
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: org.eclipse.eclemma.ui [324]
+  Unresolved requirement: Require-Bundle: org.eclipse.eclemma.core
+    -> Bundle-SymbolicName: org.eclipse.eclemma.core; bundle-version="3.1.9.202405260028"; singleton:="true"
+       org.eclipse.eclemma.core [322]
+         Unresolved requirement: Require-Bundle: org.jacoco.core; bundle-version="[0.8.12,0.8.13)"
+           -> Bundle-SymbolicName: org.jacoco.core; bundle-version="0.8.12.202403310830"
+              org.jacoco.core [961]
+                Unresolved requirement: Import-Package: org.objectweb.asm.tree; version="[9.7.0,9.8.0)"
+                  -> Export-Package: org.objectweb.asm.tree; bundle-symbolic-name="org.objectweb.asm.tree"; bundle-version="9.7.1"; version="9.7.1"; uses:="org.objectweb.asm,org.objectweb.asm.signature"
+                     org.objectweb.asm.tree [973]
+                       Unresolved requirement: Import-Package: org.objectweb.asm; version="9.7.1"
+                         -> Export-Package: org.objectweb.asm; bundle-symbolic-name="org.objectweb.asm"; bundle-version="9.7.1"; version="9.7.1"
+                            org.objectweb.asm [971]
+                              No resolution report for the bundle.                       Unresolved requirement: Import-Package: org.objectweb.asm.signature; version="9.7.1"
+                         -> Export-Package: org.objectweb.asm.signature; bundle-symbolic-name="org.objectweb.asm"; bundle-version="9.7.1"; version="9.7.1"
+                Unresolved requirement: Import-Package: org.objectweb.asm; version="[9.7.0,9.8.0)"
+                  -> Export-Package: org.objectweb.asm; bundle-symbolic-name="org.objectweb.asm"; bundle-version="9.7.1"; version="9.7.1"
+         Unresolved requirement: Require-Bundle: org.jacoco.agent; bundle-version="[0.8.12,0.8.13)"
+           -> Bundle-SymbolicName: org.jacoco.agent; bundle-version="0.8.12.202403310830"
+              org.jacoco.agent [960]
+                No resolution report for the bundle.         Unresolved requirement: Require-Bundle: org.jacoco.report; bundle-version="[0.8.12,0.8.13)"
+           -> Bundle-SymbolicName: org.jacoco.report; bundle-version="0.8.12.202403310830"
+              org.jacoco.report [962]
+                Unresolved requirement: Import-Package: org.jacoco.core.analysis; version="[0.8.12,0.8.13)"
+                  -> Export-Package: org.jacoco.core.analysis; bundle-symbolic-name="org.jacoco.core"; bundle-version="0.8.12.202403310830"; version="0.8.12"; uses:="org.jacoco.core.data,org.jacoco.core.internal.analysis"
+                Unresolved requirement: Import-Package: org.objectweb.asm; version="[9.7.0,9.8.0)"
+                  -> Export-Package: org.objectweb.asm; bundle-symbolic-name="org.objectweb.asm"; bundle-version="9.7.1"; version="9.7.1"
+                Unresolved requirement: Import-Package: org.jacoco.core.data; version="[0.8.12,0.8.13)"
+                  -> Export-Package: org.jacoco.core.data; bundle-symbolic-name="org.jacoco.core"; bundle-version="0.8.12.202403310830"; version="0.8.12"; uses:="org.jacoco.core.internal.data"
+                Unresolved requirement: Import-Package: org.jacoco.core; version="[0.8.12,0.8.13)"
+                  -> Export-Package: org.jacoco.core; bundle-symbolic-name="org.jacoco.core"; bundle-version="0.8.12.202403310830"; version="0.8.12"
+                Unresolved requirement: Import-Package: org.jacoco.core.runtime; version="[0.8.12,0.8.13)"
+                  -> Export-Package: org.jacoco.core.runtime; bundle-symbolic-name="org.jacoco.core"; bundle-version="0.8.12.202403310830"; version="0.8.12"; uses:="org.jacoco.core.data,org.objectweb.asm"
+  Unresolved requirement: Require-Bundle: org.jacoco.core; bundle-version="[0.8.12,0.8.13)"
+    -> Bundle-SymbolicName: org.jacoco.core; bundle-version="0.8.12.202403310830"
+  Bundle was not resolved because of a uses constraint violation.
+  org.apache.felix.resolver.reason.ReasonException: Uses constraint violation. Unable to resolve resource org.jacoco.core [osgi.identity; type="osgi.bundle"; version:Version="0.8.12.202403310830"; osgi.identity="org.jacoco.core"] because it is exposed to package 'org.objectweb.asm' from resources org.objectweb.asm [osgi.identity; type="osgi.bundle"; version:Version="9.7.1"; osgi.identity="org.objectweb.asm"] and org.objectweb.asm [osgi.identity; type="osgi.bundle"; version:Version="9.8.0"; osgi.identity="org.objectweb.asm"] via two dependency chains.
+
+Chain 1:
+  org.jacoco.core [osgi.identity; type="osgi.bundle"; version:Version="0.8.12.202403310830"; osgi.identity="org.jacoco.core"]
+    import: (&(osgi.wiring.package=org.objectweb.asm)(&(version>=9.7.0)(!(version>=9.8.0))))
+     |
+    export: osgi.wiring.package: org.objectweb.asm
+  org.objectweb.asm [osgi.identity; type="osgi.bundle"; version:Version="9.7.1"; osgi.identity="org.objectweb.asm"]
+
+Chain 2:
+  org.jacoco.core [osgi.identity; type="osgi.bundle"; version:Version="0.8.12.202403310830"; osgi.identity="org.jacoco.core"]
+    import: (&(osgi.wiring.package=org.objectweb.asm.commons)(&(version>=9.7.0)(!(version>=9.8.0))))
+     |
+    export: osgi.wiring.package=org.objectweb.asm.commons; uses:=org.objectweb.asm
+  org.objectweb.asm.commons [osgi.identity; type="osgi.bundle"; version:Version="9.7.1"; osgi.identity="org.objectweb.asm.commons"]
+    import: (&(osgi.wiring.package=org.objectweb.asm)(version>=9.7.1))
+     |
+    export: osgi.wiring.package: org.objectweb.asm
+  org.objectweb.asm [osgi.identity; type="osgi.bundle"; version:Version="9.8.0"; osgi.identity="org.objectweb.asm"]
+	at org.eclipse.osgi.container.Module.start(Module.java:493)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel$2.run(ModuleContainer.java:2102)
+	at org.eclipse.osgi.internal.framework.EquinoxContainerAdaptor$1$1.execute(EquinoxContainerAdaptor.java:143)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:2093)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:2033)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1996)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1912)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:230)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:341)
+
+!ENTRY ch.qos.logback.classic 1 0 2025-08-17 23:28:13.183
+!MESSAGE Activated before the state location was initialized. Retry after the state location is initialized.
+
+!ENTRY org.eclipse.equinox.app 0 0 2025-08-17 23:28:14.170
+!MESSAGE Product org.eclipse.epp.package.jee.product could not be found.
+
+!ENTRY ch.qos.logback.classic 1 0 2025-08-17 23:28:21.556
+!MESSAGE Logback config file: C:\Users\Saif ali khan\Desktop\Tap Academy\GithubProjects\media_analysis\.metadata\.plugins\org.eclipse.m2e.logback\logback.2.7.0.20241001-1350.xml
+
+!ENTRY org.eclipse.ui 2 0 2025-08-17 23:28:22.681
+!MESSAGE Warnings while parsing the commands from the 'org.eclipse.ui.commands' and 'org.eclipse.ui.actionDefinitions' extension points.
+!SUBENTRY 1 org.eclipse.ui 2 0 2025-08-17 23:28:22.682
+!MESSAGE Commands should really have a category: plug-in='org.springframework.tooling.boot.ls', id='spring.initializr.addStarters', categoryId='org.eclipse.lsp4e.commandCategory'
+
+!ENTRY org.eclipse.ui 4 4 2025-08-17 23:28:23.208
+!MESSAGE Invalid workspace location to be set for Edge browser.
+!STACK 0
+java.net.URISyntaxException: Illegal character in path at index 19: file:/C:/Users/Saif ali khan/Desktop/Tap Academy/GithubProjects/media_analysis/.metadata/.plugins/org.eclipse.swt
+	at java.base/java.net.URI$Parser.fail(URI.java:2995)
+	at java.base/java.net.URI$Parser.checkChars(URI.java:3166)
+	at java.base/java.net.URI$Parser.parseHierarchical(URI.java:3248)
+	at java.base/java.net.URI$Parser.parse(URI.java:3196)
+	at java.base/java.net.URI.<init>(URI.java:645)
+	at java.base/java.net.URL.toURI(URL.java:1220)
+	at org.eclipse.ui.internal.Workbench.setEdgeDataDirectory(Workbench.java:530)
+	at org.eclipse.ui.internal.Workbench.<init>(Workbench.java:461)
+	at org.eclipse.ui.internal.Workbench.lambda$3(Workbench.java:598)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:339)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:570)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:173)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:178)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:208)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:143)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:109)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:439)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:271)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:668)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:605)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1481)
+
+!ENTRY org.eclipse.ui 2 0 2025-08-17 23:28:23.325
+!MESSAGE Warnings while parsing the commands from the 'org.eclipse.ui.commands' and 'org.eclipse.ui.actionDefinitions' extension points.
+!SUBENTRY 1 org.eclipse.ui 2 0 2025-08-17 23:28:23.326
+!MESSAGE Commands should really have a category: plug-in='org.springframework.tooling.boot.ls', id='spring.initializr.addStarters', categoryId='org.eclipse.lsp4e.commandCategory'
+
+!ENTRY org.eclipse.egit.ui 2 0 2025-08-17 23:28:28.001
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\Saif ali khan'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY com.microsoft.copilot.eclipse 1 0 2025-08-17 23:28:28.633
+!MESSAGE [Info] Starting language server with binary lsp agent.
+
+!ENTRY com.microsoft.copilot.eclipse 1 0 2025-08-17 23:28:28.650
+!MESSAGE [Info] Lsp agent started successfully.
+
+!ENTRY org.eclipse.lsp4e 1 0 2025-08-17 23:28:30.056
+!MESSAGE [Log]	@instana/serverless-collector initialized.
+
+!ENTRY org.eclipse.lsp4e 1 0 2025-08-17 23:28:30.355
+!MESSAGE [Log]	[2025-17-08 11:28:30.344 PM] info: 	Dynamic inline compl registration: false
+
+!ENTRY org.eclipse.lsp4e 1 0 2025-08-17 23:28:30.357
+!MESSAGE [Log]	[2025-17-08 11:28:30.345 PM] info: 	Dynamic CodeLens registration: false
+
+!ENTRY org.eclipse.lsp4e 1 0 2025-08-17 23:28:30.360
+!MESSAGE [Log]	[2025-17-08 11:28:30.345 PM] info: 	Client supports language requests: false
+
+!ENTRY org.eclipse.lsp4e 1 0 2025-08-17 23:28:30.421
+!MESSAGE [Log]	[2025-17-08 11:28:30.413 PM] info: 	ORAI LSP 7.1.7-e68b499
+
+!ENTRY org.eclipse.lsp4e 1 0 2025-08-17 23:28:30.490
+!MESSAGE [Log]	[2025-17-08 11:28:30.484 PM] info: 	Chat session title migration started
+
+!ENTRY org.eclipse.lsp4e 1 0 2025-08-17 23:28:30.492
+!MESSAGE [Log]	[2025-17-08 11:28:30.485 PM] info: 	Updating unnamed chat session titles task is completed.
+
+!ENTRY org.eclipse.lsp4e 1 0 2025-08-17 23:28:30.793
+!MESSAGE [Log]	[2025-17-08 11:28:30.789 PM] info: 	Finished loading workspace symbols:
+
+Total No: Files: 52
+No: Files Parsed: 20
+No: of workspace symbols: 70
+No: of characters parsed: 17627
+Total Duration: 333.18409999999994
+getAllFileListDuration: 125.53559999999993 
+readingContentFromDiskDuration: 0.018499999999903594 
+parsingDuration: 74.5027 
+queringFnAndClassDuration: 80.24869999999987
+
+!ENTRY org.eclipse.lsp4e 1 0 2025-08-17 23:28:31.421
+!MESSAGE [Info]	[lsp] GitHub Copilot Language Server 1.353.0 initialized
+
+!ENTRY org.eclipse.lsp4e 1 0 2025-08-17 23:28:31.656
+!MESSAGE [Info]	[certificates] Removed 12 expired certificates
+
+!ENTRY org.eclipse.lsp4e 2 0 2025-08-17 23:28:58.054
+!MESSAGE Javadoc unavailable. Failed to obtain it.
+!STACK 0
+java.lang.InterruptedException
+	at java.base/java.util.concurrent.CompletableFuture.reportGet(CompletableFuture.java:430)
+	at java.base/java.util.concurrent.CompletableFuture.get(CompletableFuture.java:2140)
+	at org.eclipse.lsp4e.jdt.LSJavaHoverProvider.getHoverInfo2(LSJavaHoverProvider.java:66)
+	at org.eclipse.jdt.internal.ui.text.java.hover.BestMatchHover.getHoverInfo2(BestMatchHover.java:163)
+	at org.eclipse.jdt.internal.ui.text.java.hover.BestMatchHover.getHoverInfo2(BestMatchHover.java:130)
+	at org.eclipse.jdt.internal.ui.text.java.hover.JavaEditorTextHoverProxy.getHoverInfo2(JavaEditorTextHoverProxy.java:89)
+	at org.eclipse.jface.text.TextViewerHoverManager$1.run(TextViewerHoverManager.java:155)
+
+!ENTRY com.microsoft.copilot.eclipse 1 0 2025-08-17 23:29:13.247
+!MESSAGE [Info] Completion request timed out after 5000 milliseconds
+
+!ENTRY com.microsoft.copilot.eclipse 1 0 2025-08-17 23:29:24.773
+!MESSAGE [Info] Completion request timed out after 5000 milliseconds
+
+!ENTRY com.microsoft.copilot.eclipse 1 0 2025-08-17 23:29:29.776
+!MESSAGE [Info] Completion request timed out after 5000 milliseconds
+
+!ENTRY com.microsoft.copilot.eclipse 1 0 2025-08-17 23:29:34.779
+!MESSAGE [Info] Completion request timed out after 5000 milliseconds
+
+!ENTRY org.eclipse.lsp4e 2 0 2025-08-17 23:29:38.183
+!MESSAGE [Warning]	Failed to transmit spans, will retry in 1000 ms. [instana] Could not send traces and metrics to Instana. The Instana back end did not respond in the configured timeout of 500 ms. The timeout can be configured by setting the environment variable INSTANA_TIMEOUT. Error: [instana] Could not send traces and metrics to Instana. The Instana back end did not respond in the configured timeout of 500 ms. The timeout can be configured by setting the environment variable INSTANA_TIMEOUT.
+    at APr (C:\Users\Saif ali khan\eclipse\jee-2024-12\eclipse\configuration\org.eclipse.osgi\1126\0\.cp\assets\lsp-server\server.min.cjs:187:80740)
+    at ClientRequest.<anonymous> (C:\Users\Saif ali khan\eclipse\jee-2024-12\eclipse\configuration\org.eclipse.osgi\1126\0\.cp\assets\lsp-server\server.min.cjs:187:79246)
+    at ClientRequest.emit (node:events:518:28)
+    at TLSSocket.emitRequestTimeout (node:_http_client:851:9)
+    at Object.onceWrapper (node:events:632:28)
+    at TLSSocket.emit (node:events:530:35)
+    at Socket._onTimeout (node:net:595:8)
+    at listOnTimeout (node:internal/timers:594:17)
+    at process.processTimers (node:internal/timers:529:7)
+
+!ENTRY org.eclipse.lsp4e 2 0 2025-08-17 23:29:39.699
+!MESSAGE [Warning]	Failed to transmit spans, will retry in 1000 ms. [instana] Could not send traces and metrics to Instana. The Instana back end did not respond in the configured timeout of 500 ms. The timeout can be configured by setting the environment variable INSTANA_TIMEOUT. Error: [instana] Could not send traces and metrics to Instana. The Instana back end did not respond in the configured timeout of 500 ms. The timeout can be configured by setting the environment variable INSTANA_TIMEOUT.
+    at APr (C:\Users\Saif ali khan\eclipse\jee-2024-12\eclipse\configuration\org.eclipse.osgi\1126\0\.cp\assets\lsp-server\server.min.cjs:187:80740)
+    at ClientRequest.<anonymous> (C:\Users\Saif ali khan\eclipse\jee-2024-12\eclipse\configuration\org.eclipse.osgi\1126\0\.cp\assets\lsp-server\server.min.cjs:187:79246)
+    at ClientRequest.emit (node:events:518:28)
+    at TLSSocket.emitRequestTimeout (node:_http_client:851:9)
+    at Object.onceWrapper (node:events:632:28)
+    at TLSSocket.emit (node:events:530:35)
+    at Socket._onTimeout (node:net:595:8)
+    at listOnTimeout (node:internal/timers:594:17)
+    at process.processTimers (node:internal/timers:529:7)
+
+!ENTRY com.microsoft.copilot.eclipse 1 0 2025-08-17 23:29:39.781
+!MESSAGE [Info] Completion request timed out after 5000 milliseconds
+
+!ENTRY org.eclipse.lsp4e 2 0 2025-08-17 23:29:41.211
+!MESSAGE [Warning]	Failed to transmit spans, will retry in 1000 ms. [instana] Could not send traces and metrics to Instana. The Instana back end did not respond in the configured timeout of 500 ms. The timeout can be configured by setting the environment variable INSTANA_TIMEOUT. Error: [instana] Could not send traces and metrics to Instana. The Instana back end did not respond in the configured timeout of 500 ms. The timeout can be configured by setting the environment variable INSTANA_TIMEOUT.
+    at APr (C:\Users\Saif ali khan\eclipse\jee-2024-12\eclipse\configuration\org.eclipse.osgi\1126\0\.cp\assets\lsp-server\server.min.cjs:187:80740)
+    at ClientRequest.<anonymous> (C:\Users\Saif ali khan\eclipse\jee-2024-12\eclipse\configuration\org.eclipse.osgi\1126\0\.cp\assets\lsp-server\server.min.cjs:187:79246)
+    at ClientRequest.emit (node:events:518:28)
+    at TLSSocket.emitRequestTimeout (node:_http_client:851:9)
+    at Object.onceWrapper (node:events:632:28)
+    at TLSSocket.emit (node:events:530:35)
+    at Socket._onTimeout (node:net:595:8)
+    at listOnTimeout (node:internal/timers:594:17)
+    at process.processTimers (node:internal/timers:529:7)
+
+!ENTRY org.eclipse.lsp4e 2 0 2025-08-17 23:29:42.729
+!MESSAGE [Warning]	Failed to transmit spans, will retry in 1000 ms. [instana] Could not send traces and metrics to Instana. The Instana back end did not respond in the configured timeout of 500 ms. The timeout can be configured by setting the environment variable INSTANA_TIMEOUT. Error: [instana] Could not send traces and metrics to Instana. The Instana back end did not respond in the configured timeout of 500 ms. The timeout can be configured by setting the environment variable INSTANA_TIMEOUT.
+    at APr (C:\Users\Saif ali khan\eclipse\jee-2024-12\eclipse\configuration\org.eclipse.osgi\1126\0\.cp\assets\lsp-server\server.min.cjs:187:80740)
+    at ClientRequest.<anonymous> (C:\Users\Saif ali khan\eclipse\jee-2024-12\eclipse\configuration\org.eclipse.osgi\1126\0\.cp\assets\lsp-server\server.min.cjs:187:79246)
+    at ClientRequest.emit (node:events:518:28)
+    at TLSSocket.emitRequestTimeout (node:_http_client:851:9)
+    at Object.onceWrapper (node:events:632:28)
+    at TLSSocket.emit (node:events:530:35)
+    at Socket._onTimeout (node:net:595:8)
+    at listOnTimeout (node:internal/timers:594:17)
+    at process.processTimers (node:internal/timers:529:7)
+
+!ENTRY org.eclipse.lsp4e 2 0 2025-08-17 23:29:44.241
+!MESSAGE [Warning]	Failed to transmit spans, will retry in 1000 ms. [instana] Could not send traces and metrics to Instana. The Instana back end did not respond in the configured timeout of 500 ms. The timeout can be configured by setting the environment variable INSTANA_TIMEOUT. Error: [instana] Could not send traces and metrics to Instana. The Instana back end did not respond in the configured timeout of 500 ms. The timeout can be configured by setting the environment variable INSTANA_TIMEOUT.
+    at APr (C:\Users\Saif ali khan\eclipse\jee-2024-12\eclipse\configuration\org.eclipse.osgi\1126\0\.cp\assets\lsp-server\server.min.cjs:187:80740)
+    at ClientRequest.<anonymous> (C:\Users\Saif ali khan\eclipse\jee-2024-12\eclipse\configuration\org.eclipse.osgi\1126\0\.cp\assets\lsp-server\server.min.cjs:187:79246)
+    at ClientRequest.emit (node:events:518:28)
+    at TLSSocket.emitRequestTimeout (node:_http_client:851:9)
+    at Object.onceWrapper (node:events:632:28)
+    at TLSSocket.emit (node:events:530:35)
+    at Socket._onTimeout (node:net:595:8)
+    at listOnTimeout (node:internal/timers:594:17)
+    at process.processTimers (node:internal/timers:529:7)
+
+!ENTRY com.microsoft.copilot.eclipse 1 0 2025-08-17 23:29:44.783
+!MESSAGE [Info] Completion request timed out after 5000 milliseconds
+
+!ENTRY org.eclipse.lsp4e 2 0 2025-08-17 23:29:45.761
+!MESSAGE [Warning]	Failed to transmit spans, will retry in 1000 ms. [instana] Could not send traces and metrics to Instana. The Instana back end did not respond in the configured timeout of 500 ms. The timeout can be configured by setting the environment variable INSTANA_TIMEOUT. Error: [instana] Could not send traces and metrics to Instana. The Instana back end did not respond in the configured timeout of 500 ms. The timeout can be configured by setting the environment variable INSTANA_TIMEOUT.
+    at APr (C:\Users\Saif ali khan\eclipse\jee-2024-12\eclipse\configuration\org.eclipse.osgi\1126\0\.cp\assets\lsp-server\server.min.cjs:187:80740)
+    at ClientRequest.<anonymous> (C:\Users\Saif ali khan\eclipse\jee-2024-12\eclipse\configuration\org.eclipse.osgi\1126\0\.cp\assets\lsp-server\server.min.cjs:187:79246)
+    at ClientRequest.emit (node:events:518:28)
+    at TLSSocket.emitRequestTimeout (node:_http_client:851:9)
+    at Object.onceWrapper (node:events:632:28)
+    at TLSSocket.emit (node:events:530:35)
+    at Socket._onTimeout (node:net:595:8)
+    at listOnTimeout (node:internal/timers:594:17)
+    at process.processTimers (node:internal/timers:529:7)
+
+!ENTRY org.eclipse.lsp4e 2 0 2025-08-17 23:29:47.265
+!MESSAGE [Warning]	Failed to transmit spans, will retry in 1000 ms. [instana] Could not send traces and metrics to Instana. The Instana back end did not respond in the configured timeout of 500 ms. The timeout can be configured by setting the environment variable INSTANA_TIMEOUT. Error: [instana] Could not send traces and metrics to Instana. The Instana back end did not respond in the configured timeout of 500 ms. The timeout can be configured by setting the environment variable INSTANA_TIMEOUT.
+    at APr (C:\Users\Saif ali khan\eclipse\jee-2024-12\eclipse\configuration\org.eclipse.osgi\1126\0\.cp\assets\lsp-server\server.min.cjs:187:80740)
+    at ClientRequest.<anonymous> (C:\Users\Saif ali khan\eclipse\jee-2024-12\eclipse\configuration\org.eclipse.osgi\1126\0\.cp\assets\lsp-server\server.min.cjs:187:79246)
+    at ClientRequest.emit (node:events:518:28)
+    at TLSSocket.emitRequestTimeout (node:_http_client:851:9)
+    at Object.onceWrapper (node:events:632:28)
+    at TLSSocket.emit (node:events:530:35)
+    at Socket._onTimeout (node:net:595:8)
+    at listOnTimeout (node:internal/timers:594:17)
+    at process.processTimers (node:internal/timers:529:7)
+
+!ENTRY org.eclipse.lsp4e 2 0 2025-08-17 23:29:48.779
+!MESSAGE [Warning]	Failed to transmit spans, will retry in 1000 ms. [instana] Could not send traces and metrics to Instana. The Instana back end did not respond in the configured timeout of 500 ms. The timeout can be configured by setting the environment variable INSTANA_TIMEOUT. Error: [instana] Could not send traces and metrics to Instana. The Instana back end did not respond in the configured timeout of 500 ms. The timeout can be configured by setting the environment variable INSTANA_TIMEOUT.
+    at APr (C:\Users\Saif ali khan\eclipse\jee-2024-12\eclipse\configuration\org.eclipse.osgi\1126\0\.cp\assets\lsp-server\server.min.cjs:187:80740)
+    at ClientRequest.<anonymous> (C:\Users\Saif ali khan\eclipse\jee-2024-12\eclipse\configuration\org.eclipse.osgi\1126\0\.cp\assets\lsp-server\server.min.cjs:187:79246)
+    at ClientRequest.emit (node:events:518:28)
+    at TLSSocket.emitRequestTimeout (node:_http_client:851:9)
+    at Object.onceWrapper (node:events:632:28)
+    at TLSSocket.emit (node:events:530:35)
+    at Socket._onTimeout (node:net:595:8)
+    at listOnTimeout (node:internal/timers:594:17)
+    at process.processTimers (node:internal/timers:529:7)
+
+!ENTRY com.microsoft.copilot.eclipse 1 0 2025-08-17 23:29:49.786
+!MESSAGE [Info] Completion request timed out after 5000 milliseconds
+
+!ENTRY org.eclipse.lsp4e 2 0 2025-08-17 23:29:50.306
+!MESSAGE [Warning]	Failed to transmit spans, will retry in 1000 ms. [instana] Could not send traces and metrics to Instana. The Instana back end did not respond in the configured timeout of 500 ms. The timeout can be configured by setting the environment variable INSTANA_TIMEOUT. Error: [instana] Could not send traces and metrics to Instana. The Instana back end did not respond in the configured timeout of 500 ms. The timeout can be configured by setting the environment variable INSTANA_TIMEOUT.
+    at APr (C:\Users\Saif ali khan\eclipse\jee-2024-12\eclipse\configuration\org.eclipse.osgi\1126\0\.cp\assets\lsp-server\server.min.cjs:187:80740)
+    at ClientRequest.<anonymous> (C:\Users\Saif ali khan\eclipse\jee-2024-12\eclipse\configuration\org.eclipse.osgi\1126\0\.cp\assets\lsp-server\server.min.cjs:187:79246)
+    at ClientRequest.emit (node:events:518:28)
+    at TLSSocket.emitRequestTimeout (node:_http_client:851:9)
+    at Object.onceWrapper (node:events:632:28)
+    at TLSSocket.emit (node:events:530:35)
+    at Socket._onTimeout (node:net:595:8)
+    at listOnTimeout (node:internal/timers:594:17)
+    at process.processTimers (node:internal/timers:529:7)
+
+!ENTRY org.eclipse.lsp4e 2 0 2025-08-17 23:29:52.823
+!MESSAGE [Warning]	Failed to transmit spans, will retry in 1000 ms. [instana] Could not send traces and metrics to Instana. The Instana back end did not respond in the configured timeout of 500 ms. The timeout can be configured by setting the environment variable INSTANA_TIMEOUT. Error: [instana] Could not send traces and metrics to Instana. The Instana back end did not respond in the configured timeout of 500 ms. The timeout can be configured by setting the environment variable INSTANA_TIMEOUT.
+    at APr (C:\Users\Saif ali khan\eclipse\jee-2024-12\eclipse\configuration\org.eclipse.osgi\1126\0\.cp\assets\lsp-server\server.min.cjs:187:80740)
+    at ClientRequest.<anonymous> (C:\Users\Saif ali khan\eclipse\jee-2024-12\eclipse\configuration\org.eclipse.osgi\1126\0\.cp\assets\lsp-server\server.min.cjs:187:79246)
+    at ClientRequest.emit (node:events:518:28)
+    at TLSSocket.emitRequestTimeout (node:_http_client:851:9)
+    at Object.onceWrapper (node:events:632:28)
+    at TLSSocket.emit (node:events:530:35)
+    at Socket._onTimeout (node:net:595:8)
+    at listOnTimeout (node:internal/timers:594:17)
+    at process.processTimers (node:internal/timers:529:7)
+
+!ENTRY org.eclipse.lsp4e 2 0 2025-08-17 23:29:54.339
+!MESSAGE [Warning]	Failed to transmit spans, will retry in 1000 ms. [instana] Could not send traces and metrics to Instana. The Instana back end did not respond in the configured timeout of 500 ms. The timeout can be configured by setting the environment variable INSTANA_TIMEOUT. Error: [instana] Could not send traces and metrics to Instana. The Instana back end did not respond in the configured timeout of 500 ms. The timeout can be configured by setting the environment variable INSTANA_TIMEOUT.
+    at APr (C:\Users\Saif ali khan\eclipse\jee-2024-12\eclipse\configuration\org.eclipse.osgi\1126\0\.cp\assets\lsp-server\server.min.cjs:187:80740)
+    at ClientRequest.<anonymous> (C:\Users\Saif ali khan\eclipse\jee-2024-12\eclipse\configuration\org.eclipse.osgi\1126\0\.cp\assets\lsp-server\server.min.cjs:187:79246)
+    at ClientRequest.emit (node:events:518:28)
+    at TLSSocket.emitRequestTimeout (node:_http_client:851:9)
+    at Object.onceWrapper (node:events:632:28)
+    at TLSSocket.emit (node:events:530:35)
+    at Socket._onTimeout (node:net:595:8)
+    at listOnTimeout (node:internal/timers:594:17)
+    at process.processTimers (node:internal/timers:529:7)
+
+!ENTRY com.microsoft.copilot.eclipse 1 0 2025-08-17 23:29:54.957
+!MESSAGE [Info] Completion request timed out after 5000 milliseconds
+
+!ENTRY org.eclipse.lsp4e 2 0 2025-08-17 23:29:55.855
+!MESSAGE [Warning]	Failed to transmit spans, will retry in 1000 ms. [instana] Could not send traces and metrics to Instana. The Instana back end did not respond in the configured timeout of 500 ms. The timeout can be configured by setting the environment variable INSTANA_TIMEOUT. Error: [instana] Could not send traces and metrics to Instana. The Instana back end did not respond in the configured timeout of 500 ms. The timeout can be configured by setting the environment variable INSTANA_TIMEOUT.
+    at APr (C:\Users\Saif ali khan\eclipse\jee-2024-12\eclipse\configuration\org.eclipse.osgi\1126\0\.cp\assets\lsp-server\server.min.cjs:187:80740)
+    at ClientRequest.<anonymous> (C:\Users\Saif ali khan\eclipse\jee-2024-12\eclipse\configuration\org.eclipse.osgi\1126\0\.cp\assets\lsp-server\server.min.cjs:187:79246)
+    at ClientRequest.emit (node:events:518:28)
+    at TLSSocket.emitRequestTimeout (node:_http_client:851:9)
+    at Object.onceWrapper (node:events:632:28)
+    at TLSSocket.emit (node:events:530:35)
+    at Socket._onTimeout (node:net:595:8)
+    at listOnTimeout (node:internal/timers:594:17)
+    at process.processTimers (node:internal/timers:529:7)
+
+!ENTRY org.eclipse.lsp4e 1 0 2025-08-17 23:29:56.181
+!MESSAGE [Info]	[fetchCompletions] Request 7fd0ee39-453a-42ec-953b-598333ecae4c at <https://proxy.individual.githubcopilot.com/v1/engines/gpt-4o-copilot/completions> finished with 200 status after 5992.691900000005ms
+
+!ENTRY org.eclipse.lsp4e 1 0 2025-08-17 23:29:57.019
+!MESSAGE [Info]	[streamChoices] solution 0 returned. finish reason: [stop]
+
+!ENTRY org.eclipse.lsp4e 1 0 2025-08-17 23:29:57.019
+!MESSAGE [Info]	[fetchCompletions] Request 575bd5e3-3109-459a-b870-19c70f93a00e at <https://proxy.individual.githubcopilot.com/v1/engines/gpt-4o-copilot/completions> finished with 200 status after 1824.813399999999ms
+
+!ENTRY org.eclipse.lsp4e 1 0 2025-08-17 23:29:58.935
+!MESSAGE [Info]	[fetchCompletions] Request d44f2981-eb90-4be9-a717-63cd19d6173d at <https://proxy.individual.githubcopilot.com/v1/engines/gpt-4o-copilot/completions> finished with 200 status after 14128.917199999996ms
+
+!ENTRY org.eclipse.lsp4e 1 0 2025-08-17 23:29:58.935
+!MESSAGE [Info]	[fetchCompletions] Request 520eeae5-240f-4507-9137-a116cf40f07c at <https://proxy.individual.githubcopilot.com/v1/engines/gpt-4o-copilot/completions> finished with 200 status after 1676.4640000000072ms
+
+!ENTRY org.eclipse.lsp4e 1 0 2025-08-17 23:29:59.127
+!MESSAGE [Info]	[streamChoices] solution 0 returned. finish reason: [null]
+
+!ENTRY org.eclipse.lsp4e 1 0 2025-08-17 23:30:06.202
+!MESSAGE [Info]	[fetchCompletions] Request 7e62d1f0-c59d-4ae8-b11c-0ca6ffd5e96e at <https://proxy.individual.githubcopilot.com/v1/engines/gpt-4o-copilot/completions> finished with 200 status after 3669.955799999996ms
+
+!ENTRY org.eclipse.lsp4e 1 0 2025-08-17 23:30:06.203
+!MESSAGE [Info]	[streamChoices] solution 0 returned. finish reason: [stop]
+
+!ENTRY org.eclipse.lsp4e 1 0 2025-08-17 23:30:07.480
+!MESSAGE [Info]	[fetchCompletions] Request e1280717-63f1-41f5-ae5c-339c468ba9f9 at <https://proxy.individual.githubcopilot.com/v1/engines/gpt-4o-copilot/completions> finished with 200 status after 1263.902099999992ms
+
+!ENTRY org.eclipse.lsp4e 1 0 2025-08-17 23:30:07.494
+!MESSAGE [Info]	[streamChoices] solution 0 returned. finish reason: [stop]
+
+!ENTRY org.eclipse.lsp4e 1 0 2025-08-17 23:30:08.127
+!MESSAGE [Info]	[fetchCompletions] Request 05b7b78e-94fb-480f-9071-2ee9ed63f787 at <https://proxy.individual.githubcopilot.com/v1/engines/gpt-4o-copilot/completions> finished with 200 status after 605.4458000000013ms
+
+!ENTRY org.eclipse.lsp4e 1 0 2025-08-17 23:30:12.067
+!MESSAGE [Info]	[streamChoices] solution 0 returned. finish reason: [null]
+
+!ENTRY org.eclipse.lsp4e 4 0 2025-08-17 23:44:53.335
+!MESSAGE Unexpected null value present!
+!STACK 0
+java.lang.IllegalStateException: Unexpected null value present!
+	at org.eclipse.lsp4e.internal.NullSafetyHelper.castNonNull(NullSafetyHelper.java:36)
+	at org.eclipse.lsp4e.operations.semanticTokens.SemanticTokensClient.requestFullSemanticTokens(SemanticTokensClient.java:45)
+	at org.eclipse.lsp4e.operations.semanticTokens.SemanticHighlightReconcilerStrategy.fullReconcile(SemanticHighlightReconcilerStrategy.java:239)
+	at org.eclipse.lsp4e.operations.semanticTokens.SemanticHighlightReconcilerStrategy.initialReconcile(SemanticHighlightReconcilerStrategy.java:258)
+	at org.eclipse.ui.internal.genericeditor.CompositeReconcilerStrategy.initialReconcile(CompositeReconcilerStrategy.java:48)
+	at org.eclipse.jface.text.reconciler.Reconciler.initialProcess(Reconciler.java:223)
+	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:177)
+
+!ENTRY com.microsoft.copilot.eclipse 1 0 2025-08-17 23:45:01.424
+!MESSAGE [Info] Language ID not found for extension: xml
+
+!ENTRY org.eclipse.m2e.logback.appender 4 0 2025-08-17 23:45:03.702
+!MESSAGE Could not read pom.xml
+!STACK 1
+org.eclipse.core.runtime.CoreException: Could not read pom.xml
+	at org.eclipse.m2e.core.internal.IMavenToolbox.readModel(IMavenToolbox.java:245)
+	at org.eclipse.m2e.core.internal.project.registry.ProjectRegistryManager.refreshPhase2(ProjectRegistryManager.java:591)
+	at org.eclipse.m2e.core.internal.project.registry.ProjectRegistryManager.refresh(ProjectRegistryManager.java:491)
+	at org.eclipse.m2e.core.internal.project.registry.ProjectRegistryManager.refresh(ProjectRegistryManager.java:370)
+	at org.eclipse.m2e.core.internal.project.registry.ProjectRegistryManager.refresh(ProjectRegistryManager.java:322)
+	at org.eclipse.m2e.core.internal.builder.MavenBuilder$BuildMethod.getProjectFacade(MavenBuilder.java:146)
+	at org.eclipse.m2e.core.internal.builder.MavenBuilder$BuildMethod.lambda$0(MavenBuilder.java:84)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.executeBare(MavenExecutionContext.java:458)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:339)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:278)
+	at org.eclipse.m2e.core.internal.builder.MavenBuilder$BuildMethod.execute(MavenBuilder.java:83)
+	at org.eclipse.m2e.core.internal.builder.MavenBuilder.build(MavenBuilder.java:192)
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:1077)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:47)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:296)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:352)
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:441)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:47)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:444)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:555)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:503)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:585)
+	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:207)
+	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:300)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Caused by: org.apache.maven.model.io.ModelParseException: end tag name </artifa> must match start tag name <artifactId> from line 54 (position: TEXT seen ...<artifactId>lombok</artifa\n... @55:1) 
+	at org.apache.maven.model.io.DefaultModelReader.read(DefaultModelReader.java:96)
+	at org.apache.maven.model.io.DefaultModelReader.read(DefaultModelReader.java:74)
+	at org.eclipse.m2e.core.internal.IMavenToolbox.readModel(IMavenToolbox.java:243)
+	... 24 more
+Caused by: org.codehaus.plexus.util.xml.pull.XmlPullParserException: end tag name </artifa> must match start tag name <artifactId> from line 54 (position: TEXT seen ...<artifactId>lombok</artifa\n... @55:1) 
+	at org.codehaus.plexus.util.xml.pull.MXParser.parseEndTag(MXParser.java:2151)
+	at org.codehaus.plexus.util.xml.pull.MXParser.nextImpl(MXParser.java:1418)
+	at org.codehaus.plexus.util.xml.pull.MXParser.next(MXParser.java:1375)
+	at org.codehaus.plexus.util.xml.pull.MXParser.nextText(MXParser.java:1335)
+	at org.apache.maven.model.io.xpp3.MavenXpp3Reader.parseDependency(MavenXpp3Reader.java:1430)
+	at org.apache.maven.model.io.xpp3.MavenXpp3Reader.parseModel(MavenXpp3Reader.java:2321)
+	at org.apache.maven.model.io.xpp3.MavenXpp3Reader.read(MavenXpp3Reader.java:623)
+	at org.apache.maven.model.io.xpp3.MavenXpp3Reader.read(MavenXpp3Reader.java:654)
+	at org.apache.maven.model.io.DefaultModelReader.read(DefaultModelReader.java:93)
+	... 26 more
+!SUBENTRY 1 org.eclipse.m2e.core 4 0 2025-08-17 23:45:03.705
+!MESSAGE Could not read pom.xml
+!STACK 0
+org.apache.maven.model.io.ModelParseException: end tag name </artifa> must match start tag name <artifactId> from line 54 (position: TEXT seen ...<artifactId>lombok</artifa\n... @55:1) 
+	at org.apache.maven.model.io.DefaultModelReader.read(DefaultModelReader.java:96)
+	at org.apache.maven.model.io.DefaultModelReader.read(DefaultModelReader.java:74)
+	at org.eclipse.m2e.core.internal.IMavenToolbox.readModel(IMavenToolbox.java:243)
+	at org.eclipse.m2e.core.internal.project.registry.ProjectRegistryManager.refreshPhase2(ProjectRegistryManager.java:591)
+	at org.eclipse.m2e.core.internal.project.registry.ProjectRegistryManager.refresh(ProjectRegistryManager.java:491)
+	at org.eclipse.m2e.core.internal.project.registry.ProjectRegistryManager.refresh(ProjectRegistryManager.java:370)
+	at org.eclipse.m2e.core.internal.project.registry.ProjectRegistryManager.refresh(ProjectRegistryManager.java:322)
+	at org.eclipse.m2e.core.internal.builder.MavenBuilder$BuildMethod.getProjectFacade(MavenBuilder.java:146)
+	at org.eclipse.m2e.core.internal.builder.MavenBuilder$BuildMethod.lambda$0(MavenBuilder.java:84)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.executeBare(MavenExecutionContext.java:458)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:339)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:278)
+	at org.eclipse.m2e.core.internal.builder.MavenBuilder$BuildMethod.execute(MavenBuilder.java:83)
+	at org.eclipse.m2e.core.internal.builder.MavenBuilder.build(MavenBuilder.java:192)
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:1077)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:47)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:296)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:352)
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:441)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:47)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:444)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:555)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:503)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:585)
+	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:207)
+	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:300)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Caused by: org.codehaus.plexus.util.xml.pull.XmlPullParserException: end tag name </artifa> must match start tag name <artifactId> from line 54 (position: TEXT seen ...<artifactId>lombok</artifa\n... @55:1) 
+	at org.codehaus.plexus.util.xml.pull.MXParser.parseEndTag(MXParser.java:2151)
+	at org.codehaus.plexus.util.xml.pull.MXParser.nextImpl(MXParser.java:1418)
+	at org.codehaus.plexus.util.xml.pull.MXParser.next(MXParser.java:1375)
+	at org.codehaus.plexus.util.xml.pull.MXParser.nextText(MXParser.java:1335)
+	at org.apache.maven.model.io.xpp3.MavenXpp3Reader.parseDependency(MavenXpp3Reader.java:1430)
+	at org.apache.maven.model.io.xpp3.MavenXpp3Reader.parseModel(MavenXpp3Reader.java:2321)
+	at org.apache.maven.model.io.xpp3.MavenXpp3Reader.read(MavenXpp3Reader.java:623)
+	at org.apache.maven.model.io.xpp3.MavenXpp3Reader.read(MavenXpp3Reader.java:654)
+	at org.apache.maven.model.io.DefaultModelReader.read(DefaultModelReader.java:93)
+	... 26 more
+
+!ENTRY org.eclipse.lsp4e 1 0 2025-08-17 23:45:04.651
+!MESSAGE [Info]	[fetchCompletions] Request 97648d0e-903c-4ad1-a8a8-0b145ec87078 at <https://proxy.individual.githubcopilot.com/v1/engines/gpt-4o-copilot/completions> finished with 200 status after 898.2084999999497ms
+
+!ENTRY org.eclipse.lsp4e 1 0 2025-08-17 23:45:04.767
+!MESSAGE [Info]	[streamChoices] solution 0 returned. finish reason: [stop]
+
+!ENTRY org.eclipse.lsp4e 1 0 2025-08-17 23:45:05.156
+!MESSAGE [Info]	[fetchCompletions] Request f1870559-a2b5-450a-8370-379c51ee8d55 at <https://proxy.individual.githubcopilot.com/v1/engines/gpt-4o-copilot/completions> finished with 200 status after 323.1949999999488ms
+
+!ENTRY org.eclipse.m2e.logback.appender 4 0 2025-08-17 23:45:05.170
+!MESSAGE Could not read pom.xml
+!STACK 1
+org.eclipse.core.runtime.CoreException: Could not read pom.xml
+	at org.eclipse.m2e.core.internal.IMavenToolbox.readModel(IMavenToolbox.java:245)
+	at org.eclipse.m2e.core.internal.project.registry.ProjectRegistryManager.refreshPhase2(ProjectRegistryManager.java:591)
+	at org.eclipse.m2e.core.internal.project.registry.ProjectRegistryManager.refresh(ProjectRegistryManager.java:491)
+	at org.eclipse.m2e.core.internal.project.registry.ProjectRegistryManager.refresh(ProjectRegistryManager.java:370)
+	at org.eclipse.m2e.core.internal.project.registry.ProjectRegistryManager.refresh(ProjectRegistryManager.java:322)
+	at org.eclipse.m2e.core.internal.builder.MavenBuilder$BuildMethod.getProjectFacade(MavenBuilder.java:146)
+	at org.eclipse.m2e.core.internal.builder.MavenBuilder$BuildMethod.lambda$0(MavenBuilder.java:84)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.executeBare(MavenExecutionContext.java:458)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:339)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:278)
+	at org.eclipse.m2e.core.internal.builder.MavenBuilder$BuildMethod.execute(MavenBuilder.java:83)
+	at org.eclipse.m2e.core.internal.builder.MavenBuilder.build(MavenBuilder.java:192)
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:1077)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:47)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:296)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:352)
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:441)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:47)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:444)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:555)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:503)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:585)
+	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:207)
+	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:300)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Caused by: org.apache.maven.model.io.ModelParseException: end tag name </artifa> must match start tag name <artifactId> from line 54 (position: TEXT seen ...<artifactId>lombok</artifa\n... @55:1) 
+	at org.apache.maven.model.io.DefaultModelReader.read(DefaultModelReader.java:96)
+	at org.apache.maven.model.io.DefaultModelReader.read(DefaultModelReader.java:74)
+	at org.eclipse.m2e.core.internal.IMavenToolbox.readModel(IMavenToolbox.java:243)
+	... 24 more
+Caused by: org.codehaus.plexus.util.xml.pull.XmlPullParserException: end tag name </artifa> must match start tag name <artifactId> from line 54 (position: TEXT seen ...<artifactId>lombok</artifa\n... @55:1) 
+	at org.codehaus.plexus.util.xml.pull.MXParser.parseEndTag(MXParser.java:2151)
+	at org.codehaus.plexus.util.xml.pull.MXParser.nextImpl(MXParser.java:1418)
+	at org.codehaus.plexus.util.xml.pull.MXParser.next(MXParser.java:1375)
+	at org.codehaus.plexus.util.xml.pull.MXParser.nextText(MXParser.java:1335)
+	at org.apache.maven.model.io.xpp3.MavenXpp3Reader.parseDependency(MavenXpp3Reader.java:1430)
+	at org.apache.maven.model.io.xpp3.MavenXpp3Reader.parseModel(MavenXpp3Reader.java:2321)
+	at org.apache.maven.model.io.xpp3.MavenXpp3Reader.read(MavenXpp3Reader.java:623)
+	at org.apache.maven.model.io.xpp3.MavenXpp3Reader.read(MavenXpp3Reader.java:654)
+	at org.apache.maven.model.io.DefaultModelReader.read(DefaultModelReader.java:93)
+	... 26 more
+!SUBENTRY 1 org.eclipse.m2e.core 4 0 2025-08-17 23:45:05.171
+!MESSAGE Could not read pom.xml
+!STACK 0
+org.apache.maven.model.io.ModelParseException: end tag name </artifa> must match start tag name <artifactId> from line 54 (position: TEXT seen ...<artifactId>lombok</artifa\n... @55:1) 
+	at org.apache.maven.model.io.DefaultModelReader.read(DefaultModelReader.java:96)
+	at org.apache.maven.model.io.DefaultModelReader.read(DefaultModelReader.java:74)
+	at org.eclipse.m2e.core.internal.IMavenToolbox.readModel(IMavenToolbox.java:243)
+	at org.eclipse.m2e.core.internal.project.registry.ProjectRegistryManager.refreshPhase2(ProjectRegistryManager.java:591)
+	at org.eclipse.m2e.core.internal.project.registry.ProjectRegistryManager.refresh(ProjectRegistryManager.java:491)
+	at org.eclipse.m2e.core.internal.project.registry.ProjectRegistryManager.refresh(ProjectRegistryManager.java:370)
+	at org.eclipse.m2e.core.internal.project.registry.ProjectRegistryManager.refresh(ProjectRegistryManager.java:322)
+	at org.eclipse.m2e.core.internal.builder.MavenBuilder$BuildMethod.getProjectFacade(MavenBuilder.java:146)
+	at org.eclipse.m2e.core.internal.builder.MavenBuilder$BuildMethod.lambda$0(MavenBuilder.java:84)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.executeBare(MavenExecutionContext.java:458)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:339)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:278)
+	at org.eclipse.m2e.core.internal.builder.MavenBuilder$BuildMethod.execute(MavenBuilder.java:83)
+	at org.eclipse.m2e.core.internal.builder.MavenBuilder.build(MavenBuilder.java:192)
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:1077)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:47)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:296)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:352)
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:441)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:47)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:444)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:555)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:503)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:585)
+	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:207)
+	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:300)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Caused by: org.codehaus.plexus.util.xml.pull.XmlPullParserException: end tag name </artifa> must match start tag name <artifactId> from line 54 (position: TEXT seen ...<artifactId>lombok</artifa\n... @55:1) 
+	at org.codehaus.plexus.util.xml.pull.MXParser.parseEndTag(MXParser.java:2151)
+	at org.codehaus.plexus.util.xml.pull.MXParser.nextImpl(MXParser.java:1418)
+	at org.codehaus.plexus.util.xml.pull.MXParser.next(MXParser.java:1375)
+	at org.codehaus.plexus.util.xml.pull.MXParser.nextText(MXParser.java:1335)
+	at org.apache.maven.model.io.xpp3.MavenXpp3Reader.parseDependency(MavenXpp3Reader.java:1430)
+	at org.apache.maven.model.io.xpp3.MavenXpp3Reader.parseModel(MavenXpp3Reader.java:2321)
+	at org.apache.maven.model.io.xpp3.MavenXpp3Reader.read(MavenXpp3Reader.java:623)
+	at org.apache.maven.model.io.xpp3.MavenXpp3Reader.read(MavenXpp3Reader.java:654)
+	at org.apache.maven.model.io.DefaultModelReader.read(DefaultModelReader.java:93)
+	... 26 more
+
+!ENTRY org.eclipse.lsp4e 1 0 2025-08-17 23:45:05.260
+!MESSAGE [Info]	[streamChoices] solution 0 returned. finish reason: [null]
+
+!ENTRY org.eclipse.lsp4e 1 0 2025-08-17 23:45:11.349
+!MESSAGE [Info]	[fetchCompletions] Request 878cabc9-1aeb-4854-bdfc-0e673b3844ef at <https://proxy.individual.githubcopilot.com/v1/engines/gpt-4o-copilot/completions> finished with 200 status after 905.9763999999268ms
+
+!ENTRY org.eclipse.lsp4e 1 0 2025-08-17 23:45:11.641
+!MESSAGE [Info]	[streamChoices] solution 0 returned. finish reason: [stop]
+
+!ENTRY org.eclipse.lsp4e 1 0 2025-08-17 23:46:13.790
+!MESSAGE [Info]	[fetchCompletions] Request 647a0b3f-f877-4768-a177-60edde0d6c3b at <https://proxy.individual.githubcopilot.com/v1/engines/gpt-4o-copilot/completions> finished with 200 status after 557.7737999998499ms
+
+!ENTRY org.eclipse.lsp4e 1 0 2025-08-17 23:46:14.003
+!MESSAGE [Info]	[streamChoices] solution 0 returned. finish reason: [stop]
+
+!ENTRY org.eclipse.lsp4e 1 0 2025-08-17 23:46:14.538
+!MESSAGE [Info]	[fetchCompletions] Request 186b2c9b-c286-4f89-82a8-35fcd4d7058d at <https://proxy.individual.githubcopilot.com/v1/engines/gpt-4o-copilot/completions> finished with 200 status after 517.2423999998719ms
+
+!ENTRY org.eclipse.lsp4e 1 0 2025-08-17 23:46:14.580
+!MESSAGE [Info]	[streamChoices] solution 0 returned. finish reason: [stop]
+
+!ENTRY org.eclipse.lsp4e 1 0 2025-08-17 23:46:24.832
+!MESSAGE [Info]	[fetchCompletions] Request 59887446-07b3-45d5-aa51-92ad994c812f at <https://proxy.individual.githubcopilot.com/v1/engines/gpt-4o-copilot/completions> finished with 200 status after 331.32260000007227ms
+
+!ENTRY org.eclipse.lsp4e 1 0 2025-08-17 23:46:24.909
+!MESSAGE [Info]	[streamChoices] solution 0 returned. finish reason: [null]
+
+!ENTRY org.eclipse.lsp4e 1 0 2025-08-17 23:46:26.789
+!MESSAGE [Info]	[fetchCompletions] Request 9f80f9a5-c4be-46ee-9f04-7071655d68d9 at <https://proxy.individual.githubcopilot.com/v1/engines/gpt-4o-copilot/completions> finished with 200 status after 366.92620000010356ms
+
+!ENTRY org.eclipse.lsp4e 1 0 2025-08-17 23:46:26.849
+!MESSAGE [Info]	[streamChoices] solution 0 returned. finish reason: [stop]
+
+!ENTRY org.eclipse.lsp4e 1 0 2025-08-17 23:46:27.223
+!MESSAGE [Info]	[fetchCompletions] Request c54b1e16-e4b2-4206-a909-393dd0d62146 at <https://proxy.individual.githubcopilot.com/v1/engines/gpt-4o-copilot/completions> finished with 200 status after 339.0368000001181ms
+
+!ENTRY org.eclipse.lsp4e 1 0 2025-08-17 23:46:27.224
+!MESSAGE [Info]	[streamChoices] solution 0 returned. finish reason: [stop]
+
+!ENTRY org.eclipse.lsp4e 1 0 2025-08-17 23:53:57.269
+!MESSAGE [Info]	[fetchCompletions] Request 3f7e893a-fe60-405a-af53-17ade8316845 at <https://proxy.individual.githubcopilot.com/v1/engines/gpt-4o-copilot/completions> finished with 200 status after 909.1082999999635ms
+
+!ENTRY org.eclipse.lsp4e 1 0 2025-08-17 23:53:57.422
+!MESSAGE [Info]	[streamChoices] solution 0 returned. finish reason: [stop]
+
+!ENTRY org.eclipse.lsp4e 1 0 2025-08-17 23:53:57.731
+!MESSAGE [Info]	[fetchCompletions] Request e22fc36d-758c-428d-9623-98a239c9413d at <https://proxy.individual.githubcopilot.com/v1/engines/gpt-4o-copilot/completions> finished with 200 status after 299.8260999999475ms
+
+!ENTRY org.eclipse.lsp4e 1 0 2025-08-17 23:53:57.808
+!MESSAGE [Info]	[streamChoices] solution 0 returned. finish reason: [stop]
+
+!ENTRY org.eclipse.lsp4e 1 0 2025-08-17 23:53:58.199
+!MESSAGE [Info]	[fetchCompletions] Request 286b322b-38a7-4a0a-83e2-b86f93c66df2 at <https://proxy.individual.githubcopilot.com/v1/engines/gpt-4o-copilot/completions> finished with 200 status after 363.1260000001639ms
+
+!ENTRY org.eclipse.lsp4e 1 0 2025-08-17 23:53:58.335
+!MESSAGE [Info]	[streamChoices] solution 0 returned. finish reason: [null]
+
+!ENTRY org.eclipse.lsp4e 1 0 2025-08-17 23:54:02.716
+!MESSAGE [Info]	[fetchCompletions] Request 30963af4-7545-4710-9853-a60972eaec81 at <https://proxy.individual.githubcopilot.com/v1/engines/gpt-4o-copilot/completions> finished with 200 status after 378.0344000000041ms
+
+!ENTRY org.eclipse.lsp4e 1 0 2025-08-17 23:54:02.764
+!MESSAGE [Info]	[streamChoices] solution 0 returned. finish reason: [stop]
+
+!ENTRY org.eclipse.lsp4e 1 0 2025-08-17 23:54:03.117
+!MESSAGE [Info]	[fetchCompletions] Request 772335b0-6823-4375-8046-665179b9840d at <https://proxy.individual.githubcopilot.com/v1/engines/gpt-4o-copilot/completions> finished with 200 status after 313.47340000001714ms
+
+!ENTRY org.eclipse.lsp4e 1 0 2025-08-17 23:54:03.184
+!MESSAGE [Info]	[streamChoices] solution 0 returned. finish reason: [null]
+
+!ENTRY org.eclipse.lsp4e 1 0 2025-08-17 23:54:04.244
+!MESSAGE [Info]	[fetchCompletions] Request 4fd36014-8264-473d-bd32-1cf1b10e3db5 at <https://proxy.individual.githubcopilot.com/v1/engines/gpt-4o-copilot/completions> finished with 200 status after 411.36489999992773ms
+
+!ENTRY org.eclipse.lsp4e 1 0 2025-08-17 23:54:04.301
+!MESSAGE [Info]	[streamChoices] solution 0 returned. finish reason: [stop]
+
+!ENTRY org.eclipse.lsp4e 1 0 2025-08-17 23:54:04.653
+!MESSAGE [Info]	[fetchCompletions] Request 95ff16d2-0353-4b9c-87ec-a632f9067f0d at <https://proxy.individual.githubcopilot.com/v1/engines/gpt-4o-copilot/completions> finished with 200 status after 327.4714999999851ms
+
+!ENTRY org.eclipse.lsp4e 1 0 2025-08-17 23:54:04.723
+!MESSAGE [Info]	[streamChoices] solution 0 returned. finish reason: [null]
+
+!ENTRY org.eclipse.lsp4e 1 0 2025-08-17 23:54:07.338
+!MESSAGE [Info]	[code-referencing] Calling Match
+
+!ENTRY org.eclipse.lsp4e 1 0 2025-08-17 23:54:08.691
+!MESSAGE [Info]	[fetchCompletions] Request 993fa844-6a18-465d-bafe-59654a3caa2b at <https://proxy.individual.githubcopilot.com/v1/engines/gpt-4o-copilot/completions> finished with 200 status after 414.75279999990016ms
+
+!ENTRY org.eclipse.lsp4e 1 0 2025-08-17 23:54:08.896
+!MESSAGE [Info]	[streamChoices] solution 0 returned. finish reason: [stop]
+
+!ENTRY org.eclipse.lsp4e 1 0 2025-08-17 23:54:09.339
+!MESSAGE [Info]	[code-referencing] No match found
+
+!ENTRY org.eclipse.lsp4e 1 0 2025-08-17 23:54:10.098
+!MESSAGE [Info]	[fetchCompletions] Request ca82147d-d517-4495-ab6b-8ffcc0736102 at <https://proxy.individual.githubcopilot.com/v1/engines/gpt-4o-copilot/completions> finished with 200 status after 1127.1351000000723ms
+
+!ENTRY org.eclipse.lsp4e 1 0 2025-08-17 23:54:10.139
+!MESSAGE [Info]	[ghostText] Filtered out solution matching next line
+
+!ENTRY org.eclipse.lsp4e 1 0 2025-08-17 23:54:10.139
+!MESSAGE [Info]	[streamChoices] solution 0 returned. finish reason: [stop]
+
+!ENTRY org.eclipse.lsp4e 1 0 2025-08-17 23:54:15.485
+!MESSAGE [Info]	[code-referencing] Calling Match
+
+!ENTRY org.eclipse.lsp4e 1 0 2025-08-17 23:54:15.805
+!MESSAGE [Info]	[code-referencing] No match found
+
+!ENTRY com.microsoft.copilot.eclipse 1 0 2025-08-18 00:00:10.695
+!MESSAGE [Info] Document is null for editor: AuthService.java
+
+!ENTRY com.microsoft.copilot.eclipse 1 0 2025-08-18 00:00:10.697
+!MESSAGE [Info] Completion handler is refreshed for the document: file:///C:/Users/Saif%20ali%20khan/Downloads/media/media/src/main/java/com/Klantroef/service/AuthService.java
+
+!ENTRY com.microsoft.copilot.eclipse 1 0 2025-08-18 00:00:15.999
+!MESSAGE [Info] Document is null for editor: CustomUserDetailsService.java
+
+!ENTRY com.microsoft.copilot.eclipse 1 0 2025-08-18 00:00:16.001
+!MESSAGE [Info] Completion handler is refreshed for the document: file:///C:/Users/Saif%20ali%20khan/Downloads/media/media/src/main/java/com/Klantroef/security/CustomUserDetailsService.java
+
+!ENTRY com.microsoft.copilot.eclipse 1 0 2025-08-18 00:00:16.185
+!MESSAGE [Info] Document is null for editor: AdminUser.java
+
+!ENTRY com.microsoft.copilot.eclipse 1 0 2025-08-18 00:00:16.186
+!MESSAGE [Info] Completion handler is refreshed for the document: file:///C:/Users/Saif%20ali%20khan/Downloads/media/media/src/main/java/com/Klantroef/model/AdminUser.java
+
+!ENTRY com.microsoft.copilot.eclipse 1 0 2025-08-18 00:00:16.215
+!MESSAGE [Info] Document is null for editor: JwtUtil.java
+
+!ENTRY com.microsoft.copilot.eclipse 1 0 2025-08-18 00:00:16.216
+!MESSAGE [Info] Completion handler is refreshed for the document: file:///C:/Users/Saif%20ali%20khan/Downloads/media/media/src/main/java/com/Klantroef/security/JwtUtil.java
+
+!ENTRY com.microsoft.copilot.eclipse 1 0 2025-08-18 00:00:16.253
+!MESSAGE [Info] Document is null for editor: JwtRequestFilter.java
+
+!ENTRY com.microsoft.copilot.eclipse 1 0 2025-08-18 00:00:16.254
+!MESSAGE [Info] Completion handler is refreshed for the document: file:///C:/Users/Saif%20ali%20khan/Downloads/media/media/src/main/java/com/Klantroef/security/JwtRequestFilter.java
+
+!ENTRY com.microsoft.copilot.eclipse 1 0 2025-08-18 00:00:16.352
+!MESSAGE [Info] Document is null for editor: pom.xml
+
+!ENTRY com.microsoft.copilot.eclipse 1 0 2025-08-18 00:00:16.352
+!MESSAGE [Info] Completion handler is refreshed for the document: file:///C:/Users/Saif%20ali%20khan/Downloads/media/media/pom.xml
+
+!ENTRY com.microsoft.copilot.eclipse 1 0 2025-08-18 00:00:16.419
+!MESSAGE [Info] Document is null for editor: SignUpRequest.java
+
+!ENTRY com.microsoft.copilot.eclipse 1 0 2025-08-18 00:00:16.420
+!MESSAGE [Info] Completion handler is refreshed for the document: file:///C:/Users/Saif%20ali%20khan/Downloads/media/media/src/main/java/com/Klantroef/dto/SignUpRequest.java
+
+!ENTRY com.microsoft.copilot.eclipse 1 0 2025-08-18 00:00:16.519
+!MESSAGE [Info] Document is null for editor: SecurityConfig.java
+
+!ENTRY com.microsoft.copilot.eclipse 1 0 2025-08-18 00:00:16.520
+!MESSAGE [Info] Completion handler is refreshed for the document: file:///C:/Users/Saif%20ali%20khan/Downloads/media/media/src/main/java/com/Klantroef/security/SecurityConfig.java
